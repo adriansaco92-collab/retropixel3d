@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RetroPixel3D — Impresion 3D, miniaturas y props. Catalogo para Freak Wars 2026, Madrid.">
+<meta name="theme-color" content="#0C0E13">
+<meta property="og:title" content="RetroPixel3D — Freak Wars 2026">
+<meta property="og:description" content="Impresion 3D, miniaturas y props. Catalogo y tarjeta de visita digital.">
+<meta property="og:type" content="website">
+<title>RetroPixel3D</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground: #0C0E13;
+  --surface: #16191F;
+  --surface-hover: #1E2129;
+  --border: #262A33;
+  --gold: #C8A24D;
+  --gold-dim: #96782E;
+  --gold-soft: rgba(200,162,77,0.12);
+  --text: #DDD8CE;
+  --text-secondary: #807A6E;
+  --text-tertiary: #5A564D;
+  --blood: #7A3333;
+  --sw-blue: #3A5F8A;
+  --poke-red: #8A4A3A;
+  --dnd-green: #4A6741;
+  --anime-purple: #6B4C8A;
+  --gaming-green: #5A6B4A;
+  --retro-teal: #4A6B7A;
+  --urgency: #A63D2F;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--ground);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 0.75rem 5rem;
+}
+
+.save-banner {
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  animation: fadeSlide 0.4s ease-out;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.save-banner-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+.save-banner-text {
+  flex: 1;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.save-banner-text strong { color: var(--text); }
+
+.save-banner-btn {
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--ground);
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.save-banner-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.save-banner[hidden] { display: none !important; }
+
+.hero {
+  text-align: center;
+  padding: 1.8rem 0 1.2rem;
+}
+
+.hero-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+  background: linear-gradient(
+    105deg,
+    var(--gold) 0%, var(--gold) 35%,
+    #F0E6B0 48%, #FFF8DC 50%, #F0E6B0 52%,
+    var(--gold) 65%, var(--gold) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+.hero-tagline {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.hero-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-event {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.hero-event strong { color: var(--text); font-weight: 600; }
+
+.hero-contact {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-pill:active { transform: scale(0.92); }
+.contact-pill svg { width: 16px; height: 16px; }
+
+.pill-ig { background: linear-gradient(135deg, #833AB4, #E1306C, #F77737); color: #fff; }
+.pill-wa { background: #25D366; color: #fff; }
+.pill-email { background: var(--gold-dim); color: var(--ground); }
+
+.promo {
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-dim);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.promo-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+
+.promo-sub {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s, box-shadow 0.3s;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out, border-color 0.2s, box-shadow 0.3s;
+}
+
+.product-card:active { transform: scale(0.97); }
+.product-card:hover {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 12px rgba(200,162,77,0.15), 0 0 4px rgba(200,162,77,0.1);
+}
+
+.product-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--ground);
+}
+
+.product-card-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ground);
+  color: var(--text-tertiary);
+  font-size: 2rem;
+}
+
+.product-card-info {
+  padding: 0.45rem 0.5rem;
+}
+
+.product-card-name {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card-price {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.product-card-tag {
+  display: inline-block;
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.08rem 0.3rem;
+  border-radius: 2px;
+  color: #DDD8CE;
+  margin-bottom: 0.15rem;
+}
+
+.product-card-stock {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  background: var(--urgency);
+  color: #fff;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem;
+  border-radius: 3px;
+  animation: pulse-stock 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-stock {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.product-card-offer {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  background: var(--gold);
+  color: var(--ground);
+  font-size: 0.56rem;
+  font-weight: 700;
+  padding: 0.12rem 0.4rem;
+  border-radius: 3px;
+}
+
+.tag-w40k { background: var(--blood); }
+.tag-sw { background: var(--sw-blue); }
+.tag-pokemon { background: var(--poke-red); }
+.tag-dnd { background: var(--dnd-green); }
+.tag-anime { background: var(--anime-purple); }
+.tag-gaming { background: var(--gaming-green); }
+.tag-retro { background: var(--retro-teal); }
+
+.custom-cta {
+  background: var(--surface);
+  border: 1px dashed var(--gold-dim);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.custom-cta-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.custom-cta-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.custom-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s;
+}
+
+.custom-cta-btn:active { transform: scale(0.97); }
+.custom-cta-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.25s ease-out;
+}
+
+.modal-overlay.open {
+  background: rgba(0,0,0,0.85);
+}
+
+.modal-overlay[hidden] { display: none !important; }
+
+.modal-sheet {
+  background: var(--surface);
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.modal-overlay.open .modal-sheet {
+  transform: translateY(0);
+}
+
+.modal-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--ground);
+  overflow: hidden;
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: 3.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-stock {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  background: var(--urgency);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.modal-body {
+  padding: 1rem 1.1rem 1.5rem;
+}
+
+.modal-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem;
+  border-radius: 2px;
+  color: #DDD8CE;
+  margin-bottom: 0.4rem;
+}
+
+.modal-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.modal-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.8rem;
+}
+
+.modal-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.modal-price {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.modal-offer {
+  font-size: 0.75rem;
+  color: var(--gold-dim);
+  background: var(--gold-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.modal-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s;
+}
+
+.modal-wa:active { transform: scale(0.97); }
+.modal-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.save-fab {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--ground);
+  border: none;
+  border-radius: 20px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s;
+}
+
+.save-fab:active { transform: translateX(-50%) scale(0.95); }
+.save-fab svg { width: 16px; height: 16px; }
+.save-fab[hidden] { display: none !important; }
+
+.footer {
+  text-align: center;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.footer strong { color: var(--text-secondary); }
+
+.section-label::after {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s ease-out;
+}
+
+.section-label.visible::after {
+  transform: scaleX(1);
+}
+
+.contact-pill {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popIn 0.35s ease-out forwards;
+}
+
+.contact-pill:nth-child(1) { animation-delay: 0.3s; }
+.contact-pill:nth-child(2) { animation-delay: 0.45s; }
+.contact-pill:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes popIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card, .contact-pill, .modal-wa, .save-fab, .custom-cta-btn,
+  .modal-overlay, .modal-sheet { transition: none; }
+  .save-banner, .hero-brand, .contact-pill { animation: none; }
+  .product-card, .contact-pill { opacity: 1; transform: none; }
+  .section-label::after { transform: scaleX(1); }
+  .product-card-stock { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="save-banner" id="saveBanner">
+    <span class="save-banner-icon">&#x1F4CC;</span>
+    <span class="save-banner-text"><strong>Guarda este catalogo</strong> para verlo cuando quieras, aunque te vayas del evento</span>
+    <button class="save-banner-btn" id="saveBannerBtn">Guardar</button>
+    <button class="save-banner-close" id="saveBannerClose" aria-label="Cerrar">&#215;</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-brand">RetroPixel3D</div>
+    <div class="hero-tagline">Impresion 3D &middot; Miniaturas &middot; Props</div>
+    <div class="hero-row">
+      <div class="hero-event">
+        <strong>Freak Wars '26</strong> &middot; 12&ndash;13 sept &middot; Madrid
+      </div>
+      <div class="hero-contact">
+        <a class="contact-pill pill-ig" href="https://instagram.com/retropixel3d" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="contact-pill pill-wa" href="https://wa.me/34687616798?text=Hola%21%20Te%20vi%20en%20Freak%20Wars" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a class="contact-pill pill-email" href="mailto:adriansaco92@gmail.com?subject=Freak%20Wars%20-%20RetroPixel3D" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="promo">
+    <div class="promo-text">Llaveros: 3 &times; 10 &euro;</div>
+    <div class="promo-sub">+100 modelos en stock</div>
+  </div>
+
+  <div id="catalog"></div>
+
+  <div class="custom-cta">
+    <div class="custom-cta-title">Encargos personalizados</div>
+    <div class="custom-cta-desc">&iquest;Tienes un modelo, una idea o quieres algo a medida? Imprimo lo que necesites.</div>
+    <a class="custom-cta-btn" href="https://wa.me/34687616798?text=Hola%21%20Quiero%20un%20encargo%20personalizado.%20Te%20vi%20en%20Freak%20Wars." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pedir encargo
+    </a>
+  </div>
+
+  <footer class="footer">
+    <strong>@retropixel3d</strong> &middot; Freak Wars '26 &middot; Pab. de Cristal, Casa de Campo, Madrid
+  </footer>
+
+</div>
+
+<button class="save-fab" id="saveFab" hidden>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+  Guardar catalogo
+</button>
+
+<div class="modal-overlay" id="modal" hidden>
+  <div class="modal-sheet" id="modalSheet">
+    <div class="modal-img-wrap">
+      <div id="modalImgSlot"></div>
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&#215;</button>
+      <div class="modal-stock" id="modalStock" hidden></div>
+    </div>
+    <div class="modal-body">
+      <div id="modalTag"></div>
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-price-row">
+        <span class="modal-price" id="modalPrice"></span>
+        <span class="modal-offer" id="modalOffer"></span>
+      </div>
+      <a class="modal-wa" id="modalWa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span id="modalWaLabel">Preguntar por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+var CATEGORY_ORDER = [
+  "Replicas de Armas 1:1",
+  "Cuadros y Laminas",
+  "Figuras y Decoracion",
+  "Accesorios de Juego",
+  "Llaveros ~5cm"
+];
+
+var PRODUCTS = [
+  {id:"chainsword",name:"Chainsword 90cm",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Replica a escala real de la espada sierra del Adeptus Astartes. 90cm de largo, multiparte ensamblada y lijada. 1.4kg de PLA, 43h de impresion.",img:null,icon:"⚔️"},
+  {id:"bolter",name:"Bolter Black Templar",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Bolter tactico a escala 1:1 con detalle de los Black Templars. 1.5kg de PLA, 28h de impresion. Multiparte ensamblado.",img:null,icon:"🔫"},
+  {id:"hand-flamer",name:"Hand Flamer",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Lanzallamas de mano a escala 1:1. 746g de PLA, 37h de impresion. Multiparte, acabado detallado.",img:null,icon:"🔥"},
+  {id:"casco-sm",name:"Casco Space Marine",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Casco completo de Space Marine a escala real. Multiparte ensamblado, listo para pintar o exhibir.",img:null,icon:"⛑️"},
+  {id:"hueforge-sw",name:"Planos Tecnicos HueForge x4",category:"Cuadros y Laminas",tag:"SW",tagClass:"tag-sw",price:"20 €",offer:null,stock:null,desc:"Set de 4 laminas HueForge con planos tecnicos de Star Wars. Impresas capa a capa a 0.08mm.",img:null,icon:"🖼️"},
+  {id:"hueforge-pkm",name:"HueForge Pokemon con marco",category:"Cuadros y Laminas",tag:"PKM",tagClass:"tag-pokemon",price:"18 €",offer:null,stock:null,desc:"Lamina HueForge de Pokemon con marco impreso a juego. 0.08mm de capa, 100% infill.",img:null,icon:"🎨"},
+  {id:"mapas-3d",name:"Mapas 3D regiones x7",category:"Cuadros y Laminas",tag:"Retro",tagClass:"tag-retro",price:"15 €",offer:null,stock:null,desc:"Mapas en relieve 3D de regiones de videojuegos clasicos. 7 modelos disponibles.",img:null,icon:"🗺️"},
+  {id:"grogu",name:"Grogu pintado a mano",category:"Figuras y Decoracion",tag:"SW",tagClass:"tag-sw",price:"20 €",offer:null,stock:null,desc:"Figura de Grogu (Baby Yoda) impresa en PLA y pintada a mano con acrilicos. Aprox. 12cm de alto.",img:null,icon:"👽"},
+  {id:"macetero-anor",name:"Macetero Anor Londo",category:"Figuras y Decoracion",tag:"DS",tagClass:"tag-gaming",price:"18 €",offer:null,stock:null,desc:"Macetero inspirado en la arquitectura de Anor Londo de Dark Souls. Para suculentas o plantas pequenas.",img:null,icon:"🏯"},
+  {id:"argonath",name:"Argonath Book Nook",category:"Figuras y Decoracion",tag:"ESDLA",tagClass:"tag-dnd",price:"Desde 25 €",offer:null,stock:null,desc:"Book Nook de los Argonath (El Senor de los Anillos). Se coloca entre libros en la estanteria.",img:null,icon:"🗿"},
+  {id:"torre-dados-druida",name:"Jarra de Druida — torre de dados",category:"Accesorios de Juego",tag:"RPG",tagClass:"tag-dnd",price:"18 €",offer:null,stock:null,desc:"Torre de dados con forma de jarra de druida. Echa los dados por arriba y salen por la boca.",img:null,icon:"🏺"},
+  {id:"caja-dados-inq",name:"Caja dados Inquisitorial",category:"Accesorios de Juego",tag:"W40K",tagClass:"tag-w40k",price:"12 €",offer:null,stock:null,desc:"Caja de dados con el sello de la Inquisicion del Emperador. Tapa ajustada, caben 20+ dados.",img:null,icon:"🎲"},
+  {id:"llaveros-op",name:"Llaveros One Piece x21",category:"Llaveros ~5cm",tag:"OP",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"Coleccion de 21 llaveros de One Piece: Luffy, Zoro, Nami, Sanji, Chopper y mas. ~5cm cada uno.",img:null,icon:"⚓"},
+  {id:"llaveros-sl",name:"Llaveros Solo Leveling x19",category:"Llaveros ~5cm",tag:"SL",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"19 llaveros de Solo Leveling: Sung Jin-Woo, sombras, cazadores y mas. ~5cm, PLA multicolor.",img:null,icon:"🗡️"},
+  {id:"llaveros-w40k",name:"Llaveros W40K facciones x11",category:"Llaveros ~5cm",tag:"W40K",tagClass:"tag-w40k",price:"4 €",offer:"3 x 10 €",stock:null,desc:"11 llaveros con los simbolos de las facciones de Warhammer 40.000. ~5cm, PLA.",img:null,icon:"🛡️"},
+  {id:"llaveros-berserk",name:"Llaveros Berserk x9",category:"Llaveros ~5cm",tag:"Anime",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"9 llaveros de Berserk: Marca del Sacrificio, Dragonslayer, Behelit y mas. ~5cm, PLA.",img:null,icon:"✨"}
+];
+
+function renderCatalog() {
+  var container = document.getElementById('catalog');
+  var groups = {};
+  PRODUCTS.forEach(function(p) {
+    if (!groups[p.category]) groups[p.category] = [];
+    groups[p.category].push(p);
+  });
+  var sortedCats = CATEGORY_ORDER.filter(function(c) { return groups[c]; });
+  var html = '';
+  for (var i = 0; i < sortedCats.length; i++) {
+    var cat = sortedCats[i];
+    var items = groups[cat];
+    html += '<div class="section-label">' + cat + '</div><div class="product-grid">';
+    for (var j = 0; j < items.length; j++) {
+      var p = items[j];
+      var imgHtml = p.img
+        ? '<img class="product-card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy">'
+        : '<div class="product-card-placeholder">' + (p.icon || '🎭') + '</div>';
+      var tagHtml = p.tag ? '<div class="product-card-tag ' + p.tagClass + '">' + p.tag + '</div>' : '';
+      var stockHtml = p.stock ? '<div class="product-card-stock">' + p.stock + '</div>' : '';
+      var offerHtml = p.offer ? '<div class="product-card-offer">' + p.offer + '</div>' : '';
+      html += '<div class="product-card" data-id="' + p.id + '">'
+        + imgHtml + stockHtml + offerHtml
+        + '<div class="product-card-info">' + tagHtml
+        + '<div class="product-card-name">' + p.name + '</div>'
+        + '<div class="product-card-price">' + p.price + '</div>'
+        + '</div></div>';
+    }
+    html += '</div>';
+  }
+  container.innerHTML = html;
+}
+
+function openModal(id) {
+  var p = PRODUCTS.find(function(x) { return x.id === id; });
+  if (!p) return;
+  var imgSlot = document.getElementById('modalImgSlot');
+  imgSlot.innerHTML = p.img
+    ? '<img class="modal-img" src="' + p.img + '" alt="' + p.name + '">'
+    : '<div class="modal-placeholder">' + (p.icon || '🎭') + '</div>';
+  var tagEl = document.getElementById('modalTag');
+  tagEl.innerHTML = p.tag ? '<span class="modal-tag ' + p.tagClass + '">' + p.tag + '</span>' : '';
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalDesc').textContent = p.desc || '';
+  document.getElementById('modalPrice').textContent = p.price;
+  var offerEl = document.getElementById('modalOffer');
+  if (p.offer) { offerEl.textContent = p.offer; offerEl.hidden = false; } else { offerEl.hidden = true; }
+  var stockEl = document.getElementById('modalStock');
+  if (p.stock) { stockEl.textContent = p.stock; stockEl.hidden = false; } else { stockEl.hidden = true; }
+  document.getElementById('modalWaLabel').textContent = p.price === 'Consultar' ? 'Consultar precio por WhatsApp' : 'Preguntar por WhatsApp';
+  var waMsg = encodeURIComponent('Hola! Me interesa: ' + p.name + '. Te vi en Freak Wars.');
+  document.getElementById('modalWa').href = 'https://wa.me/34687616798?text=' + waMsg;
+  var modal = document.getElementById('modal');
+  modal.hidden = false;
+  requestAnimationFrame(function() { requestAnimationFrame(function() { modal.classList.add('open'); }); });
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  var modal = document.getElementById('modal');
+  modal.classList.remove('open');
+  setTimeout(function() { modal.hidden = true; }, 300);
+  document.body.style.overflow = '';
+}
+
+document.getElementById('catalog').addEventListener('click', function(e) {
+  var card = e.target.closest('.product-card');
+  if (card) openModal(card.dataset.id);
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function doShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'RetroPixel3D — Catalogo Freak Wars 2026',
+      text: 'Impresion 3D, miniaturas y props. Catalogo de RetroPixel3D para Freak Wars 2026, Madrid.',
+      url: window.location.href
+    }).catch(function() {});
+  }
+}
+
+var saveBanner = document.getElementById('saveBanner');
+var saveFab = document.getElementById('saveFab');
+var bannerDismissed = false;
+try { bannerDismissed = localStorage.getItem('r3d_banner_dismissed') === '1'; } catch(e) {}
+if (bannerDismissed) saveBanner.hidden = true;
+if (navigator.share) saveFab.hidden = false;
+
+document.getElementById('saveBannerBtn').addEventListener('click', function() {
+  doShare();
+  saveBanner.hidden = true;
+  try { localStorage.setItem('r3d_banner_dismissed', '1'); } catch(e) {}
+});
+document.getElementById('saveBannerClose').addEventListener('click', function() {
+  saveBanner.hidden = true;
+  try { localStorage.setItem('r3d_banner_dismissed', '1'); } catch(e) {}
+});
+saveFab.addEventListener('click', doShare);
+
+renderCatalog();
+
+var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReduced) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        if (el.classList.contains('product-card')) {
+          var grid = el.parentElement;
+          var cards = Array.from(grid.querySelectorAll('.product-card'));
+          var idx = cards.indexOf(el);
+          setTimeout(function() { el.classList.add('visible'); }, idx * 80);
+        } else {
+          el.classList.add('visible');
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.product-card, .section-label').forEach(function(el) {
+    observer.observe(el);
+  });
+}
+</script>
+
+</body>
+</html>
