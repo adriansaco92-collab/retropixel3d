@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RetroPixel3D — Impresion 3D, miniaturas y props. Catalogo para Freak Wars 2026, Madrid.">
+<meta name="description" content="RetroPixel3D — Impresion 3D artesanal. Catalogo Freak Wars 2026, Madrid 12-13 septiembre.">
 <meta name="theme-color" content="#0C0E13">
 <meta property="og:title" content="RetroPixel3D — Freak Wars 2026">
-<meta property="og:description" content="Impresion 3D, miniaturas y props. Catalogo y tarjeta de visita digital.">
+<meta property="og:description" content="Props, figuras y complementos impresos en 3D. Catalogo digital.">
 <meta property="og:type" content="website">
 <title>RetroPixel3D</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
@@ -22,13 +22,6 @@
   --text: #DDD8CE;
   --text-secondary: #807A6E;
   --text-tertiary: #5A564D;
-  --blood: #7A3333;
-  --sw-blue: #3A5F8A;
-  --poke-red: #8A4A3A;
-  --dnd-green: #4A6741;
-  --anime-purple: #6B4C8A;
-  --gaming-green: #5A6B4A;
-  --retro-teal: #4A6B7A;
   --urgency: #A63D2F;
 }
 
@@ -45,11 +38,12 @@ body {
 }
 
 .page {
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
   padding: 0 0.75rem 5rem;
 }
 
+/* Save banner */
 .save-banner {
   background: var(--surface);
   border: 1px solid var(--gold-dim);
@@ -61,818 +55,803 @@ body {
   margin-bottom: 1rem;
   animation: fadeSlide 0.4s ease-out;
 }
-
 @keyframes fadeSlide {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .save-banner-icon { font-size: 1.1rem; flex-shrink: 0; }
-
-.save-banner-text {
-  flex: 1;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  line-height: 1.35;
-}
-
+.save-banner-text { flex: 1; font-size: 0.72rem; color: var(--text-secondary); line-height: 1.35; }
 .save-banner-text strong { color: var(--text); }
-
 .save-banner-btn {
-  flex-shrink: 0;
-  background: var(--gold);
-  color: var(--ground);
-  border: none;
-  border-radius: 4px;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0; background: var(--gold); color: var(--ground);
+  border: none; border-radius: 4px; padding: 0.3rem 0.6rem;
+  font-size: 0.7rem; font-weight: 600; font-family: inherit; cursor: pointer;
 }
-
 .save-banner-close {
-  flex-shrink: 0;
-  background: none;
-  border: none;
-  color: var(--text-tertiary);
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0 0.2rem;
-  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0; background: none; border: none;
+  color: var(--text-tertiary); font-size: 1rem; cursor: pointer; padding: 0 0.2rem;
 }
-
 .save-banner[hidden] { display: none !important; }
 
-.hero {
-  text-align: center;
-  padding: 1.8rem 0 1.2rem;
-}
-
+/* Hero */
+.hero { text-align: center; padding: 1.8rem 0 1rem; }
 .hero-brand {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--gold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.15rem;
-  background: linear-gradient(
-    105deg,
-    var(--gold) 0%, var(--gold) 35%,
-    #F0E6B0 48%, #FFF8DC 50%, #F0E6B0 52%,
-    var(--gold) 65%, var(--gold) 100%
-  );
+  font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.4rem;
+  color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase;
+  background: linear-gradient(105deg, var(--gold) 0%, var(--gold) 35%, #F0E6B0 48%, #FFF8DC 50%, #F0E6B0 52%, var(--gold) 65%, var(--gold) 100%);
   background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s ease-in-out infinite;
 }
-
 @keyframes shimmer {
   0%, 100% { background-position: 100% 50%; }
   50% { background-position: 0% 50%; }
 }
-
 .hero-tagline {
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
+  font-size: 0.72rem; color: var(--text-secondary);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem;
 }
-
-.hero-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+.hero-row { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+.hero-link {
+  color: var(--gold); text-decoration: none; font-size: 0.7rem;
+  display: flex; align-items: center; gap: 0.25rem;
+  padding: 0.25rem 0.5rem; border: 1px solid var(--gold-dim);
+  border-radius: 4px; transition: background 0.2s;
 }
+.hero-link:hover, .hero-link:active { background: var(--gold-soft); }
 
-.hero-event {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 0.35rem 0.7rem;
-  border-radius: 4px;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
+/* Category filter */
+.cat-filter {
+  display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.5rem 0 1rem;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
-
-.hero-event strong { color: var(--text); font-weight: 600; }
-
-.hero-contact {
-  display: inline-flex;
-  gap: 0.35rem;
-}
-
-.contact-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: transform 0.1s;
+.cat-filter::-webkit-scrollbar { display: none; }
+.cat-btn {
+  flex-shrink: 0; background: var(--surface); color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: 20px;
+  padding: 0.3rem 0.75rem; font-size: 0.7rem; font-family: inherit;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
-
-.contact-pill:active { transform: scale(0.92); }
-.contact-pill svg { width: 16px; height: 16px; }
-
-.pill-ig { background: linear-gradient(135deg, #833AB4, #E1306C, #F77737); color: #fff; }
-.pill-wa { background: #25D366; color: #fff; }
-.pill-email { background: var(--gold-dim); color: var(--ground); }
-
-.promo {
-  background: var(--gold-soft);
-  border: 1px solid var(--gold-dim);
-  border-radius: 6px;
-  padding: 0.55rem 0.8rem;
-  text-align: center;
-  margin-bottom: 1.2rem;
+.cat-btn.active {
+  background: var(--gold); color: var(--ground);
+  border-color: var(--gold); font-weight: 600;
 }
 
-.promo-text {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--gold);
-}
-
-.promo-sub {
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-}
-
-.section-label {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-  margin-top: 0.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-.product-grid {
+/* Grid */
+.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.6rem;
-  margin-bottom: 1.4rem;
 }
 
-.product-card {
+/* Card */
+.card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.1s, box-shadow 0.3s;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  opacity: 0;
-  transform: translateY(16px);
+  transition: transform 0.2s, border-color 0.2s;
+  opacity: 0; transform: translateY(16px);
+}
+.card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.4s, transform 0.4s; }
+.card:active { transform: scale(0.97); }
+.card-img-wrap {
+  position: relative; width: 100%; aspect-ratio: 1;
+  background: #111318; overflow: hidden;
+}
+.card-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.3s;
+}
+.card:active .card-img-wrap img { transform: scale(1.03); }
+.card-badge {
+  position: absolute; top: 0.35rem; left: 0.35rem;
+  background: var(--urgency); color: #fff;
+  font-size: 0.55rem; font-weight: 600; text-transform: uppercase;
+  padding: 0.15rem 0.4rem; border-radius: 3px; letter-spacing: 0.04em;
+}
+.card-multi {
+  position: absolute; top: 0.35rem; right: 0.35rem;
+  background: rgba(0,0,0,0.65); color: #fff;
+  font-size: 0.6rem; padding: 0.1rem 0.35rem; border-radius: 3px;
+}
+.card-info { padding: 0.5rem 0.55rem 0.6rem; }
+.card-name {
+  font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--text); line-height: 1.25; margin-bottom: 0.15rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-cat {
+  font-size: 0.6rem; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.card-price {
+  font-size: 0.7rem; color: var(--gold); font-weight: 600; margin-top: 0.2rem;
 }
 
-.product-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out, border-color 0.2s, box-shadow 0.3s;
-}
-
-.product-card:active { transform: scale(0.97); }
-.product-card:hover {
-  border-color: var(--gold-dim);
-  box-shadow: 0 0 12px rgba(200,162,77,0.15), 0 0 4px rgba(200,162,77,0.1);
-}
-
-.product-card-img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  display: block;
-  background: var(--ground);
-}
-
-.product-card-placeholder {
-  width: 100%;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ground);
-  color: var(--text-tertiary);
-  font-size: 2rem;
-}
-
-.product-card-info {
-  padding: 0.45rem 0.5rem;
-}
-
-.product-card-name {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.product-card-price {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--gold);
-  margin-top: 0.15rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.product-card-tag {
-  display: inline-block;
-  font-size: 0.52rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.08rem 0.3rem;
-  border-radius: 2px;
-  color: #DDD8CE;
-  margin-bottom: 0.15rem;
-}
-
-.product-card-stock {
-  position: absolute;
-  top: 0.35rem;
-  right: 0.35rem;
-  background: var(--urgency);
-  color: #fff;
-  font-size: 0.56rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.12rem 0.4rem;
-  border-radius: 3px;
-  animation: pulse-stock 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse-stock {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.product-card-offer {
-  position: absolute;
-  top: 0.35rem;
-  left: 0.35rem;
-  background: var(--gold);
-  color: var(--ground);
-  font-size: 0.56rem;
-  font-weight: 700;
-  padding: 0.12rem 0.4rem;
-  border-radius: 3px;
-}
-
-.tag-w40k { background: var(--blood); }
-.tag-sw { background: var(--sw-blue); }
-.tag-pokemon { background: var(--poke-red); }
-.tag-dnd { background: var(--dnd-green); }
-.tag-anime { background: var(--anime-purple); }
-.tag-gaming { background: var(--gaming-green); }
-.tag-retro { background: var(--retro-teal); }
-
-.custom-cta {
-  background: var(--surface);
-  border: 1px dashed var(--gold-dim);
-  border-radius: 6px;
-  padding: 1rem;
-  text-align: center;
-  margin-bottom: 1.4rem;
-}
-
-.custom-cta-title {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--gold);
-  margin-bottom: 0.25rem;
-}
-
-.custom-cta-desc {
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.6rem;
-  line-height: 1.4;
-}
-
-.custom-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: #25D366;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s;
-}
-
-.custom-cta-btn:active { transform: scale(0.97); }
-.custom-cta-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
-
+/* Modal */
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0);
-  z-index: 100;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  -webkit-tap-highlight-color: transparent;
-  transition: background 0.25s ease-out;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 100; display: flex; align-items: flex-end;
+  justify-content: center; opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
 }
-
-.modal-overlay.open {
-  background: rgba(0,0,0,0.85);
-}
-
-.modal-overlay[hidden] { display: none !important; }
-
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
 .modal-sheet {
-  background: var(--surface);
-  border-radius: 12px 12px 0 0;
-  width: 100%;
-  max-width: 420px;
-  max-height: 85vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  transform: translateY(100%);
-  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  background: var(--surface); border-radius: 16px 16px 0 0;
+  width: 100%; max-width: 440px; max-height: 92vh;
+  overflow-y: auto; transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
 }
-
-.modal-overlay.open .modal-sheet {
-  transform: translateY(0);
+.modal-overlay.open .modal-sheet { transform: translateY(0); }
+.modal-handle {
+  width: 36px; height: 4px; background: var(--border);
+  border-radius: 2px; margin: 0.6rem auto 0;
 }
-
-.modal-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: var(--ground);
-  overflow: hidden;
-}
-
-.modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.modal-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-tertiary);
-  font-size: 3.5rem;
-}
-
 .modal-close {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -webkit-tap-highlight-color: transparent;
+  position: absolute; top: 0.7rem; right: 0.7rem;
+  background: rgba(0,0,0,0.5); border: none;
+  color: #fff; width: 28px; height: 28px; border-radius: 50%;
+  font-size: 1rem; cursor: pointer; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
 }
-
-.modal-stock {
-  position: absolute;
-  bottom: 0.6rem;
-  left: 0.6rem;
-  background: var(--urgency);
-  color: #fff;
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
+.modal-carousel {
+  position: relative; width: 100%; aspect-ratio: 4/3;
+  background: #111318; overflow: hidden;
 }
-
-.modal-body {
-  padding: 1rem 1.1rem 1.5rem;
+.modal-carousel img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; opacity: 0; transition: opacity 0.3s;
 }
-
-.modal-tag {
-  display: inline-block;
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.12rem 0.4rem;
-  border-radius: 2px;
-  color: #DDD8CE;
-  margin-bottom: 0.4rem;
+.modal-carousel img.active { opacity: 1; }
+.carousel-nav {
+  position: absolute; bottom: 0.5rem; left: 50%;
+  transform: translateX(-50%); display: flex; gap: 0.35rem;
 }
-
+.carousel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: var(--gold); }
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.45); border: none; color: #fff;
+  width: 30px; height: 30px; border-radius: 50%;
+  font-size: 0.9rem; cursor: pointer; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel-arrow.prev { left: 0.4rem; }
+.carousel-arrow.next { right: 0.4rem; }
+.modal-body { padding: 1rem 1rem 1.5rem; }
 .modal-name {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--text);
-  margin-bottom: 0.3rem;
-  line-height: 1.3;
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: 1.1rem; color: var(--gold); margin-bottom: 0.15rem;
 }
-
-.modal-desc {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 0.8rem;
+.modal-cats {
+  font-size: 0.65rem; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem;
 }
-
-.modal-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-}
-
 .modal-price {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--gold);
-  font-variant-numeric: tabular-nums;
+  font-size: 1.1rem; color: var(--gold); font-weight: 700; margin-bottom: 0.6rem;
+}
+.modal-desc {
+  font-size: 0.82rem; color: var(--text-secondary);
+  line-height: 1.55; margin-bottom: 1rem;
+}
+.modal-badge-unique {
+  display: inline-block; background: var(--urgency); color: #fff;
+  font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
+  padding: 0.2rem 0.5rem; border-radius: 3px; letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
 }
 
-.modal-offer {
-  font-size: 0.75rem;
-  color: var(--gold-dim);
-  background: var(--gold-soft);
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
-  font-weight: 500;
+/* CTA */
+.cta-section {
+  margin-top: 2rem; padding: 1.2rem; background: var(--surface);
+  border: 1px solid var(--gold-dim); border-radius: 8px; text-align: center;
+}
+.cta-title {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: 0.9rem; color: var(--gold); margin-bottom: 0.3rem;
+}
+.cta-text { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+.cta-btn {
+  display: inline-block; background: var(--gold); color: var(--ground);
+  text-decoration: none; font-weight: 600; font-size: 0.8rem;
+  padding: 0.5rem 1.2rem; border-radius: 6px; font-family: inherit;
 }
 
-.modal-wa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border-radius: 6px;
-  background: #25D366;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 600;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s;
+/* Share FAB */
+.fab-share {
+  position: fixed; bottom: 1.2rem; right: 1.2rem;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gold); color: var(--ground);
+  border: none; font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  z-index: 50; display: flex; align-items: center; justify-content: center;
 }
 
-.modal-wa:active { transform: scale(0.97); }
-.modal-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-.save-fab {
-  position: fixed;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gold);
-  color: var(--ground);
-  border: none;
-  border-radius: 20px;
-  padding: 0.55rem 1.2rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  z-index: 50;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s;
-}
-
-.save-fab:active { transform: translateX(-50%) scale(0.95); }
-.save-fab svg { width: 16px; height: 16px; }
-.save-fab[hidden] { display: none !important; }
-
+/* Footer */
 .footer {
-  text-align: center;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
+  text-align: center; padding: 1.5rem 0 1rem;
+  font-size: 0.65rem; color: var(--text-tertiary);
 }
-
-.footer strong { color: var(--text-secondary); }
-
-.section-label::after {
-  transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 0.6s ease-out;
-}
-
-.section-label.visible::after {
-  transform: scaleX(1);
-}
-
-.contact-pill {
-  opacity: 0;
-  transform: scale(0.5);
-  animation: popIn 0.35s ease-out forwards;
-}
-
-.contact-pill:nth-child(1) { animation-delay: 0.3s; }
-.contact-pill:nth-child(2) { animation-delay: 0.45s; }
-.contact-pill:nth-child(3) { animation-delay: 0.6s; }
-
-@keyframes popIn {
-  to { opacity: 1; transform: scale(1); }
-}
+.footer a { color: var(--gold-dim); text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .product-card, .contact-pill, .modal-wa, .save-fab, .custom-cta-btn,
-  .modal-overlay, .modal-sheet { transition: none; }
-  .save-banner, .hero-brand, .contact-pill { animation: none; }
-  .product-card, .contact-pill { opacity: 1; transform: none; }
-  .section-label::after { transform: scaleX(1); }
-  .product-card-stock { animation: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 </style>
 </head>
 <body>
-
 <div class="page">
 
   <div class="save-banner" id="saveBanner">
-    <span class="save-banner-icon">&#x1F4CC;</span>
-    <span class="save-banner-text"><strong>Guarda este catalogo</strong> para verlo cuando quieras, aunque te vayas del evento</span>
-    <button class="save-banner-btn" id="saveBannerBtn">Guardar</button>
-    <button class="save-banner-close" id="saveBannerClose" aria-label="Cerrar">&#215;</button>
+    <span class="save-banner-icon">&#9733;</span>
+    <div class="save-banner-text"><strong>Guarda este catalogo</strong> para consultarlo en cualquier momento</div>
+    <button class="save-banner-btn" onclick="sharePage()">Guardar</button>
+    <button class="save-banner-close" onclick="closeBanner()">&times;</button>
   </div>
 
   <header class="hero">
     <div class="hero-brand">RetroPixel3D</div>
-    <div class="hero-tagline">Impresion 3D &middot; Miniaturas &middot; Props</div>
+    <div class="hero-tagline">Impresion 3D artesanal &bull; Freak Wars 2026</div>
     <div class="hero-row">
-      <div class="hero-event">
-        <strong>Freak Wars '26</strong> &middot; 12&ndash;13 sept &middot; Madrid
-      </div>
-      <div class="hero-contact">
-        <a class="contact-pill pill-ig" href="https://instagram.com/retropixel3d" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a class="contact-pill pill-wa" href="https://wa.me/34687616798?text=Hola%21%20Te%20vi%20en%20Freak%20Wars" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-        <a class="contact-pill pill-email" href="mailto:adriansaco92@gmail.com?subject=Freak%20Wars%20-%20RetroPixel3D" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-      </div>
+      <a href="https://instagram.com/retropixel3d" target="_blank" rel="noopener" class="hero-link">&#9679; Instagram</a>
     </div>
   </header>
 
-  <div class="promo">
-    <div class="promo-text">Llaveros: 3 &times; 10 &euro;</div>
-    <div class="promo-sub">+100 modelos en stock</div>
-  </div>
+  <nav class="cat-filter" id="catFilter"></nav>
 
-  <div id="catalog"></div>
+  <div class="grid" id="grid"></div>
 
-  <div class="custom-cta">
-    <div class="custom-cta-title">Encargos personalizados</div>
-    <div class="custom-cta-desc">&iquest;Tienes un modelo, una idea o quieres algo a medida? Imprimo lo que necesites.</div>
-    <a class="custom-cta-btn" href="https://wa.me/34687616798?text=Hola%21%20Quiero%20un%20encargo%20personalizado.%20Te%20vi%20en%20Freak%20Wars." target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Pedir encargo
-    </a>
-  </div>
+  <section class="cta-section">
+    <div class="cta-title">Encargos personalizados</div>
+    <p class="cta-text">Si no encuentras lo que buscas, preguntame. Imprimo piezas a medida en FDM y resina.</p>
+    <a href="https://instagram.com/retropixel3d" target="_blank" rel="noopener" class="cta-btn">Contactar</a>
+  </section>
 
   <footer class="footer">
-    <strong>@retropixel3d</strong> &middot; Freak Wars '26 &middot; Pab. de Cristal, Casa de Campo, Madrid
+    RetroPixel3D &copy; 2026 &bull; <a href="https://instagram.com/retropixel3d" target="_blank" rel="noopener">@retropixel3d</a>
+    <br>Freak Wars, Madrid &bull; 12-13 septiembre
   </footer>
-
 </div>
 
-<button class="save-fab" id="saveFab" hidden>
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
-  Guardar catalogo
-</button>
-
-<div class="modal-overlay" id="modal" hidden>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal-sheet" id="modalSheet">
-    <div class="modal-img-wrap">
-      <div id="modalImgSlot"></div>
-      <button class="modal-close" id="modalClose" aria-label="Cerrar">&#215;</button>
-      <div class="modal-stock" id="modalStock" hidden></div>
-    </div>
-    <div class="modal-body">
-      <div id="modalTag"></div>
-      <div class="modal-name" id="modalName"></div>
-      <div class="modal-desc" id="modalDesc"></div>
-      <div class="modal-price-row">
-        <span class="modal-price" id="modalPrice"></span>
-        <span class="modal-offer" id="modalOffer"></span>
-      </div>
-      <a class="modal-wa" id="modalWa" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span id="modalWaLabel">Preguntar por WhatsApp</span>
-      </a>
-    </div>
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-carousel" id="modalCarousel"></div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
+<button class="fab-share" onclick="sharePage()" title="Compartir catalogo">&#8599;</button>
+
 <script>
-var CATEGORY_ORDER = [
-  "Replicas de Armas 1:1",
-  "Cuadros y Laminas",
-  "Figuras y Decoracion",
-  "Accesorios de Juego",
-  "Llaveros ~5cm"
+const PRODUCTS = [
+  {
+    id: 'espada-sierra', name: 'Espada Sierra', featured: true, unique: true,
+    cats: ['warhammer','props','armas'],
+    imgs: ['Espada Sierra 1 (warhammer) (props) (armas).jpg','Espada sierra 2 (warhammer) (props) (armas).jpg','Espada sierra 3 (warhammer) (props) (armas).jpg','Espada sierra 4 (warhammer) (props) (armas).jpg'],
+    desc: 'Espada sierra de los Space Marines a escala real, pintada en azul Ultramarine con detalles metalicos. Mas de 80 cm de hoja dentada sobre peana. Una pieza de cosplay que impone.',
+    price: 'Consultar'
+  },
+  {
+    id: 'casco-space-marine', name: 'Casco Space Marine', featured: true, unique: true,
+    cats: ['warhammer','props'],
+    imgs: ['Casco Space Marine 1 (warhammer) (props).jpg','Casco Space Marine 2 (warhammer) (props).jpg','Casco Space Marine 3 (warhammer) (props).jpg'],
+    desc: 'Casco wearable de Space Marine con acabado Ultramarine y detalles dorados. Cresta, visor y simbolos del capitulo esculpidos con precision. Pieza unica de cosplay.',
+    price: 'Consultar'
+  },
+  {
+    id: 'bolter', name: 'Bolter', featured: true,
+    cats: ['warhammer','props','armas'],
+    imgs: ['Bolter (warhammer) (props) (armas).jpg','Bolter 2 (warhammer) (props) (armas).jpg'],
+    desc: 'Bolter estandar de los Ultramarines a escala 1:1 con el aguila imperial en dorado. Pintado a mano con acabado envejecido de batalla.',
+    price: 'Consultar'
+  },
+  {
+    id: 'pistola-bolter', name: 'Pistola Bolter', featured: false,
+    cats: ['warhammer','props','armas'],
+    imgs: ['Pistola Bolter (warhammer) (props) (armas).jpg','Pistola Bolter 2 (warhammer) (props) (armas).jpg'],
+    desc: 'Pistola Bolter compacta en rojo y negro. Pintada con acabado envejecido de combate y detalles metalicos. Peana incluida.',
+    price: 'Consultar'
+  },
+  {
+    id: 'rifle-bolter', name: 'Rifle Bolter', featured: true,
+    cats: ['warhammer','props','armas'],
+    imgs: ['Rifle Bolter (warhammer) (props) (armas).jpg','Rifle Bolter 2 (warhammer) (props) (armas).jpg'],
+    desc: 'Rifle Bolter pesado con la cruz templaria negra. Acabado rojo intenso con desgaste de combate. Cargador, mira y granada bajo cañon.',
+    price: 'Consultar'
+  },
+  {
+    id: 'lanzallamas', name: 'Lanzallamas', featured: false,
+    cats: ['warhammer','props','armas'],
+    imgs: ['Lanzallamas (warhammer) (props) (armas).jpg'],
+    desc: 'Lanzallamas de los Space Marines con deposito de promethium y multiples bocas. Pintado en rojo Blood Angels con detalles desgastados.',
+    price: 'Consultar'
+  },
+  {
+    id: 'cuchillo-combate', name: 'Cuchillo de combate', featured: false,
+    cats: ['warhammer','props'],
+    imgs: ['Cuchillo combate Spaces Marines (Warhammer) (props).jpg'],
+    desc: 'Cuchillo de combate Space Marine con guarda de engranaje y calavera imperial. Acabado en negro envejecido y bronce. Pieza decorativa imponente.',
+    price: 'Consultar'
+  },
+  {
+    id: 'portal-invocacion', name: 'Portal de invocacion', featured: true,
+    cats: ['warhammer'],
+    imgs: ['Portal invocacion 1 (warhammer).jpg','Portal invocacion 4 (warhammer).jpg'],
+    desc: 'Portal de invocacion gotico en ruinas con columnas y arcos detallados. Incluye version con portal de energia del Warp iluminado. Escenografia premium para Warhammer.',
+    price: 'Consultar'
+  },
+  {
+    id: 'terreno-destruido', name: 'Terreno destruido', featured: false,
+    cats: ['warhammer'],
+    imgs: ['Terreno destruido (warhammer).jpg'],
+    desc: 'Set de ruinas goticas imperiales para escenografia. Edificios en ruinas con ventanales ojivales y detalles arquitectonicos del Imperium. Tres piezas modulares.',
+    price: 'Consultar'
+  },
+  {
+    id: 'sellos-cera-warhammer', name: 'Sellos de cera Warhammer', featured: false,
+    cats: ['warhammer'],
+    imgs: ['Sellos cera Warhammer (warhammer).jpg'],
+    desc: 'Coleccion de 8 sellos de cera con iconos de facciones de Warhammer: Caos, Tiranidos, Dragonborn y mas. Ideales para cartas, sobres o decoracion.',
+    price: 'Consultar'
+  },
+  {
+    id: 'gandalf-vs-balrog', name: 'Gandalf vs Balrog', featured: true, unique: true,
+    cats: ['esdla'],
+    imgs: ['Gandalf vs Balrog (ESDLA).jpg'],
+    desc: 'Diorama circular con la escena epica del puente de Khazad-dum. Gandalf enfrenta al Balrog con filamento multicolor iridiscente en las llamas. Pieza decorativa de coleccion.',
+    price: 'Consultar'
+  },
+  {
+    id: 'torre-minas-tirith', name: 'Torre dados Minas Tirith', featured: true,
+    cats: ['esdla','torres'],
+    imgs: ['Torre dados Minas Tirith (EDLA) (torres).jpg','Torre dados Minas Tirith 2 (ESDLA) (torres).jpg'],
+    desc: 'Torre de dados con forma de Minas Tirith, la ciudad blanca de Gondor, con el Anillo Unico a sus pies. Cada nivel esta esculpido con detalle arquitectonico. Funcional y decorativa.',
+    price: 'Consultar'
+  },
+  {
+    id: 'mapa-erebor', name: 'Mapa de Erebor', featured: true,
+    cats: ['esdla'],
+    imgs: ['Mapa de Erebor (ESDLA).jpg'],
+    desc: 'Replica del mapa de Thorin con la Montana Solitaria, runas enanas y Smaug en relieve. Impreso en capas con efecto pergamino. Pieza de pared para fans de El Hobbit.',
+    price: 'Consultar'
+  },
+  {
+    id: 'silueta-comunidad', name: 'Silueta La Comunidad', featured: true,
+    cats: ['esdla'],
+    imgs: ['Silueta La Comunidad (ESDLA).jpg'],
+    desc: 'La Comunidad del Anillo en silueta sobre la hoja de Narsil, con las montañas de la Tierra Media de fondo. Filamento multicolor iridiscente. Pieza de estanteria espectacular.',
+    price: 'Consultar'
+  },
+  {
+    id: 'sujetalibros-argonath', name: 'Sujetalibros Argonath', featured: false,
+    cats: ['esdla'],
+    imgs: ['Sujetalibros Argonath (ESDLA).jpg','Sujetalibros Argonath 2 (ESDLA).jpg'],
+    desc: 'Pareja de sujetalibros con las estatuas de los Argonath, los Pilares de los Reyes a orillas del Anduin. Pintados en piedra envejecida. Funcionales y decorativos.',
+    price: 'Consultar'
+  },
+  {
+    id: 'sujetalibros-esdla', name: 'Sujetalibros ESDLA', featured: true,
+    cats: ['esdla'],
+    imgs: ['Sujetalibros ESDLA (ESDLA).jpg'],
+    desc: 'Pareja de sujetalibros con las siluetas de la Comunidad bajo el Anillo Unico en escritura elfica dorada. Diseño minimalista y elegante.',
+    price: 'Consultar'
+  },
+  {
+    id: 'sellos-cera-esdla', name: 'Sellos de cera ESDLA', featured: false,
+    cats: ['esdla'],
+    imgs: ['Sellos cera ESDLA (ESDLA).jpg'],
+    desc: 'Coleccion de 8 sellos de cera con iconos de la Tierra Media: Ojo de Sauron, Hoja de Lorien, Arbol de Gondor, Mano de Saruman y mas.',
+    price: 'Consultar'
+  },
+  {
+    id: 'grogu-babu', name: 'Grogu y Babu Frik', featured: true,
+    cats: ['star wars'],
+    imgs: ['Grogu y Babuu Frik (Star Wars).jpg'],
+    desc: 'Figura de Grogu (Baby Yoda) abrazando a Babu Frik. Pintada a mano con todo el detalle de las texturas de piel, ropas y expresiones. Pura ternura galáctica.',
+    price: 'Consultar'
+  },
+  {
+    id: 'hueforge-sw', name: 'Hueforge Star Wars', featured: false,
+    cats: ['star wars','hueforge'],
+    imgs: ['Hueforge 1 (Star Wars) (hueforge).jpg'],
+    desc: 'Par de cuadros hueforge con planos tecnicos imperiales: Droide Buitre y AT-ST. Efecto blueprint sobre fondo metalico con escritura Aurebesh.',
+    price: 'Consultar'
+  },
+  {
+    id: 'gengar', name: 'Gengar', featured: true,
+    cats: ['pokemon'],
+    imgs: ['Gengar (pokemon).jpg'],
+    desc: 'Figura de Gengar con su sonrisa malevola y ojos rojos. Impreso en purpura con acabado liso. Tamaño ideal para escritorio o estanteria.',
+    price: 'Consultar'
+  },
+  {
+    id: 'cuadro-pikachu', name: 'Cuadro Pikachu', featured: true,
+    cats: ['pokemon'],
+    imgs: ['Cuadro Pikachu (pokemon).jpg'],
+    desc: 'Diorama 3D tipo shadow box con Pikachu en un bosque. Multiples capas crean profundidad real. Marco verde con detalle de Pokeball.',
+    price: 'Consultar'
+  },
+  {
+    id: 'trio-legendarios', name: 'Cuadros Trio legendarios', featured: true,
+    cats: ['pokemon'],
+    imgs: ['Cuadros Trio legendarios (Pokemon).jpg'],
+    desc: 'Set de 3 cuadros con pantalla de batalla retro Game Boy: Articuno, Zapdos y Moltres. Pixel art impreso en 3D con relieve. Nostalgia pura de primera generacion.',
+    price: 'Consultar'
+  },
+  {
+    id: 'posavasos-pokemon', name: 'Posavasos Pokemon', featured: false,
+    cats: ['pokemon','posavasos'],
+    imgs: ['Posavasos Pokemon (posavasos) (pokemon).jpg','Posavasos pokemon 0 (pokemon).jpg','Posavasos pokemon 1 (pokemon).jpg','Posavasos pokemon 2 (pokemon).jpg','Posavasos pokemon 3 (pokemon).jpg','Posavasos pokemon 4 (pokemon).jpg'],
+    desc: 'Set de posavasos con caratulas de Pokemon Game Boy: Azul y Amarillo en hueforge multicolor. Funcionales y coleccionables.',
+    price: 'Consultar'
+  },
+  {
+    id: 'lampara-gta', name: 'Lampara LED GTA VI', featured: true,
+    cats: ['gta','videojuegos'],
+    imgs: ['Lampara LED GTA VI (GTA) (videojuegos).jpg','Lampara LED GTA VI 2 (GTA) (videojuegos).jpg'],
+    desc: 'Lampara LED con el logo de GTA VI: la V y la I con palmeras en silueta. Retroiluminacion verde neon. Pieza perfecta para el setup gaming.',
+    price: 'Consultar'
+  },
+  {
+    id: 'silueta-lucia', name: 'Silueta Lucia GTA VI', featured: true,
+    cats: ['gta','videojuegos'],
+    imgs: ['Silueta Lucia GTA VI (GTA) (videojuegos).jpg'],
+    desc: 'Silueta de Lucia de GTA VI recortada en filamento multicolor iridiscente. Figura decorativa de escritorio sobre peana. Efecto holografico al cambiar el angulo de luz.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-gta', name: 'Llaveros GTA VI', featured: false,
+    cats: ['gta','llaveros','videojuegos'],
+    imgs: ['Llaveros GTA VI (GTA) (llaveros) (videojuegos).jpg'],
+    desc: 'Llaveros con el logo de GTA VI. Diseño compacto y resistente para el dia a dia.',
+    price: 'Consultar'
+  },
+  {
+    id: 'anor-londo', name: 'Anor Londo', featured: true,
+    cats: ['videojuegos'],
+    imgs: ['Anor Londo (videojuegos).jpg','Anor Londo 2 (videojuegos).jpg'],
+    desc: 'Replica de la catedral gotica de Anor Londo de Dark Souls. Rosetones, arbotantes, pinaculos y torres con un nivel de detalle asombroso. Pieza de exposicion para fans del Souls.',
+    price: 'Consultar'
+  },
+  {
+    id: 'mascara-aku-aku', name: 'Mascara Aku Aku', featured: true,
+    cats: ['videojuegos'],
+    imgs: ['Máscara Aku Aku (videojuegos).jpg'],
+    desc: 'La mascara protectora de Crash Bandicoot a todo color: madera, plumas multicolores y esa sonrisa inconfundible. Para colgar en la pared o llevar de prop.',
+    price: 'Consultar'
+  },
+  {
+    id: 'espadas-link', name: 'Espadas de Link', featured: false,
+    cats: ['videojuegos'],
+    imgs: ['Espadas Link (Zelda) (videojuegos).jpg'],
+    desc: 'Dos replicas de la Master Sword en su pedestal del Templo del Tiempo. Detalle Hyliano en azul y verde. Piezas decorativas miniatura.',
+    price: 'Consultar'
+  },
+  {
+    id: 'cuadros-retro', name: 'Cuadros retro', featured: true,
+    cats: ['videojuegos'],
+    imgs: ['Cuadros retro (videojuegos).jpg'],
+    desc: 'Set de 4 cuadros 3D retro: mapa de Pokemon Rojo, mapa de Zelda, pantalla de Tetris y Space Invaders. Pixel art con relieve real. Cada cuadro enmarcado individualmente.',
+    price: 'Consultar'
+  },
+  {
+    id: 'tarot-cult', name: 'Cartas tarot Cult of the Lamb', featured: true,
+    cats: ['videojuegos'],
+    imgs: ['Cartas tarot Cult of the lambs (Videojuegos).jpg'],
+    desc: 'Coleccion de 7 cartas de tarot del universo de Cult of the Lamb impresas en 3D: The Fool, The Magician, The Empress, The Emperor, The Hierophant, The Devil y The High Priestess.',
+    price: 'Consultar'
+  },
+  {
+    id: 'carta-black-lotus', name: 'Carta Black Lotus 3D', featured: true, unique: true,
+    cats: ['magic'],
+    imgs: ['Carta Black Lotus 3D (Magic).jpg'],
+    desc: 'Replica en 3D de la mitica Black Lotus de Magic: The Gathering. La flor emerge en relieve con efecto metalico iridiscente. Marco, texto y borde fieles al original. Pieza de coleccionista.',
+    price: 'Consultar'
+  },
+  {
+    id: 'desdentao', name: 'Desdentao y Light Fury', featured: true,
+    cats: ['cine'],
+    imgs: ['Desdentao y Light Fury (cine).jpg'],
+    desc: 'Pareja de dragones articulados de Como Entrenar a tu Dragon: Desdentao en negro y Light Fury en blanco. Alas, cola y patas moviles.',
+    price: 'Consultar'
+  },
+  {
+    id: 'fujur', name: 'Fujur articulado', featured: true,
+    cats: ['cine'],
+    imgs: ['Fujur articulado (cine).jpg','Fujur articulado 2 (cine).jpg'],
+    desc: 'Fujur, el Dragon de la Suerte de La Historia Interminable, articulado. Cuerpo serpenteante con escamas detalladas y cara expresiva. Una pieza nostalgica unica.',
+    price: 'Consultar'
+  },
+  {
+    id: 'posavasos-goonies', name: 'Posavasos Los Goonies', featured: false,
+    cats: ['posavasos','cine'],
+    imgs: ['Posavasos Los Goonies (posavasos) (cine).jpg'],
+    desc: 'Par de posavasos de Los Goonies: silueta de Sloth y el clasico "Goonies Never Say Die" con calavera pirata. Impresos en blanco y azul.',
+    price: 'Consultar'
+  },
+  {
+    id: 'hueforge-anime', name: 'Hueforge Anime', featured: false,
+    cats: ['hueforge','anime'],
+    imgs: ['Hueforge 2 (hueforge) (anime).jpg','Hueforge 3 (hueforge) (anime).jpg','Hueforge 4 (hueforge) (anime).jpg'],
+    desc: 'Cuadros hueforge de anime: Junji Ito, One Piece (Jolly Roger al atardecer) y Nezuko de Demon Slayer. Degradados de color imposibles logrados capa a capa.',
+    price: 'Consultar'
+  },
+  {
+    id: 'cuadros-3d', name: 'Cuadros 3D', featured: true,
+    cats: ['hueforge'],
+    imgs: ['Cuadros 3D (hueforge).jpg'],
+    desc: 'Cuadros de pared con efecto tridimensional de lineas: Sin Cara (El Viaje de Chihiro), Deadpool, Majin Buu y Stitch. Tecnica unica de relieve por capas.',
+    price: 'Consultar'
+  },
+  {
+    id: 'marcapaginas', name: 'Marcapaginas', featured: true,
+    cats: ['marcapaginas','anime','star wars'],
+    imgs: ['Marcapáginas (marcapáginas) (anime) (Star Wars).jpg'],
+    desc: 'Coleccion de marcapaginas impresos en 3D: diseños de Star Wars (X-Wing, TIE Fighter, Estrella de la Muerte), Demon Slayer (Tanjiro, espada Nichirin), samurais y Gandalf. Rojos, negros y blancos.',
+    price: 'Consultar'
+  },
+  {
+    id: 'torre-calavera', name: 'Torre dados calavera', featured: true,
+    cats: ['warhammer','torres'],
+    imgs: ['Torre dados calavera (Warhammer) (Torres).jpg','Torre dados calavera 2 (warhammer) (torres).jpg'],
+    desc: 'Torre de dados con forma de calavera mecanica con tubos y cables. Los dados entran por la parte superior y salen por la boca. Estetica grimdark total.',
+    price: 'Consultar'
+  },
+  {
+    id: 'jarras-tiradados', name: 'Jarras tiradados', featured: false,
+    cats: ['torres'],
+    imgs: ['Jarras tiradados (torres).jpg','Jarras tiradados 2 (torres).jpg'],
+    desc: 'Jarras medievales que funcionan como tiradados. Estilo taberna con grabados de dados poliedricos y asa rustica. Dos modelos: una de madera y otra tactica militar.',
+    price: 'Consultar'
+  },
+  {
+    id: 'libreria-tiradados', name: 'Libreria tiradados', featured: false,
+    cats: ['torres'],
+    imgs: ['Libreria tiradados (torres).jpg','Libreria tiradados 2 (torres).jpg'],
+    desc: 'Estanteria miniatura con libros de colores que es en realidad un tiradados. Los dados ruedan entre los libros y caen por la apertura inferior. Original y funcional.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros', name: 'Llaveros variados', featured: false,
+    cats: ['llaveros'],
+    imgs: ['Llaveros 1 (llaveros).jpg','Llaveros 2 (llaveros).jpg'],
+    desc: 'Surtido de llaveros: murcielagos goticos, marca del sacrificio de Berserk en rojo, y cascos de Hollow Knight en blanco. Resistentes y con cadena incluida.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-bolter', name: 'Llaveros Bolter funcionales', featured: false,
+    cats: ['llaveros','warhammer'],
+    imgs: ['Llaveros Bolter funcionales (llaveros) (warhammer).jpg'],
+    desc: 'Llaveros con forma de Bolter miniatura. Detalle sorprendente en tamaño reducido. Para fans de Warhammer 40K.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-halloween', name: 'Llaveros halloween', featured: false,
+    cats: ['pokemon','star wars','llaveros'],
+    imgs: ['Llaveros halloween (pokemon) (star wars) (llaveros).jpg'],
+    desc: 'Llaveros tematicos de Halloween con diseños de Pokemon y Star Wars. Edicion limitada.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-one-piece', name: 'Llaveros One Piece', featured: false,
+    cats: ['anime','llaveros'],
+    imgs: ['Llaveros One Piece (anime) (llaveros).jpg'],
+    desc: 'Llaveros con iconos de One Piece. Perfectos para fans de la tripulacion del Sombrero de Paja.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-solo-leveling', name: 'Llaveros Solo Leveling', featured: false,
+    cats: ['anime','llaveros'],
+    imgs: ['Llaveros Solo leveling (anime)(llaveros).jpg'],
+    desc: 'Llaveros inspirados en Solo Leveling, el manhwa de cazadores de mazmorras.',
+    price: 'Consultar'
+  },
+  {
+    id: 'llaveros-warhammer', name: 'Llaveros Warhammer', featured: false,
+    cats: ['warhammer','llaveros'],
+    imgs: ['Llaveros warhammer (warhammer) (llaveros).jpg'],
+    desc: 'Llaveros con insignias y simbolos de Warhammer 40K. Diseños variados de los distintos capitulos.',
+    price: 'Consultar'
+  },
+  {
+    id: 'reglas-articuladas', name: 'Reglas articuladas', featured: false,
+    cats: ['warhammer','complementos'],
+    imgs: ['Reglas articuladas (Warhammer)(complementos).jpg','Reglas articuladas 2 (Warhammer)(complementos).jpg'],
+    desc: 'Reglas articuladas numeradas para medir distancias en Warhammer. Se pliegan para guardar y se despliegan hasta 24 pulgadas. Azules y negras, claras y resistentes.',
+    price: 'Consultar'
+  },
+  {
+    id: 'porta-latas', name: 'Porta latas', featured: false,
+    cats: ['complementos'],
+    imgs: ['Porta latas (complementos).jpg'],
+    desc: 'Soporte para latas con agarre tactico estilo militar. Diseño robusto en negro mate. Util para el setup de mesa o el escritorio.',
+    price: 'Consultar'
+  },
 ];
 
-var PRODUCTS = [
-  {id:"chainsword",name:"Chainsword 90cm",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Replica a escala real de la espada sierra del Adeptus Astartes. 90cm de largo, multiparte ensamblada y lijada. 1.4kg de PLA, 43h de impresion.",img:null,icon:"⚔️"},
-  {id:"bolter",name:"Bolter Black Templar",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Bolter tactico a escala 1:1 con detalle de los Black Templars. 1.5kg de PLA, 28h de impresion. Multiparte ensamblado.",img:null,icon:"🔫"},
-  {id:"hand-flamer",name:"Hand Flamer",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Lanzallamas de mano a escala 1:1. 746g de PLA, 37h de impresion. Multiparte, acabado detallado.",img:null,icon:"🔥"},
-  {id:"casco-sm",name:"Casco Space Marine",category:"Replicas de Armas 1:1",tag:"W40K",tagClass:"tag-w40k",price:"Consultar",offer:null,stock:"Pieza unica",desc:"Casco completo de Space Marine a escala real. Multiparte ensamblado, listo para pintar o exhibir.",img:null,icon:"⛑️"},
-  {id:"hueforge-sw",name:"Planos Tecnicos HueForge x4",category:"Cuadros y Laminas",tag:"SW",tagClass:"tag-sw",price:"20 €",offer:null,stock:null,desc:"Set de 4 laminas HueForge con planos tecnicos de Star Wars. Impresas capa a capa a 0.08mm.",img:null,icon:"🖼️"},
-  {id:"hueforge-pkm",name:"HueForge Pokemon con marco",category:"Cuadros y Laminas",tag:"PKM",tagClass:"tag-pokemon",price:"18 €",offer:null,stock:null,desc:"Lamina HueForge de Pokemon con marco impreso a juego. 0.08mm de capa, 100% infill.",img:null,icon:"🎨"},
-  {id:"mapas-3d",name:"Mapas 3D regiones x7",category:"Cuadros y Laminas",tag:"Retro",tagClass:"tag-retro",price:"15 €",offer:null,stock:null,desc:"Mapas en relieve 3D de regiones de videojuegos clasicos. 7 modelos disponibles.",img:null,icon:"🗺️"},
-  {id:"grogu",name:"Grogu pintado a mano",category:"Figuras y Decoracion",tag:"SW",tagClass:"tag-sw",price:"20 €",offer:null,stock:null,desc:"Figura de Grogu (Baby Yoda) impresa en PLA y pintada a mano con acrilicos. Aprox. 12cm de alto.",img:null,icon:"👽"},
-  {id:"macetero-anor",name:"Macetero Anor Londo",category:"Figuras y Decoracion",tag:"DS",tagClass:"tag-gaming",price:"18 €",offer:null,stock:null,desc:"Macetero inspirado en la arquitectura de Anor Londo de Dark Souls. Para suculentas o plantas pequenas.",img:null,icon:"🏯"},
-  {id:"argonath",name:"Argonath Book Nook",category:"Figuras y Decoracion",tag:"ESDLA",tagClass:"tag-dnd",price:"Desde 25 €",offer:null,stock:null,desc:"Book Nook de los Argonath (El Senor de los Anillos). Se coloca entre libros en la estanteria.",img:null,icon:"🗿"},
-  {id:"torre-dados-druida",name:"Jarra de Druida — torre de dados",category:"Accesorios de Juego",tag:"RPG",tagClass:"tag-dnd",price:"18 €",offer:null,stock:null,desc:"Torre de dados con forma de jarra de druida. Echa los dados por arriba y salen por la boca.",img:null,icon:"🏺"},
-  {id:"caja-dados-inq",name:"Caja dados Inquisitorial",category:"Accesorios de Juego",tag:"W40K",tagClass:"tag-w40k",price:"12 €",offer:null,stock:null,desc:"Caja de dados con el sello de la Inquisicion del Emperador. Tapa ajustada, caben 20+ dados.",img:null,icon:"🎲"},
-  {id:"llaveros-op",name:"Llaveros One Piece x21",category:"Llaveros ~5cm",tag:"OP",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"Coleccion de 21 llaveros de One Piece: Luffy, Zoro, Nami, Sanji, Chopper y mas. ~5cm cada uno.",img:null,icon:"⚓"},
-  {id:"llaveros-sl",name:"Llaveros Solo Leveling x19",category:"Llaveros ~5cm",tag:"SL",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"19 llaveros de Solo Leveling: Sung Jin-Woo, sombras, cazadores y mas. ~5cm, PLA multicolor.",img:null,icon:"🗡️"},
-  {id:"llaveros-w40k",name:"Llaveros W40K facciones x11",category:"Llaveros ~5cm",tag:"W40K",tagClass:"tag-w40k",price:"4 €",offer:"3 x 10 €",stock:null,desc:"11 llaveros con los simbolos de las facciones de Warhammer 40.000. ~5cm, PLA.",img:null,icon:"🛡️"},
-  {id:"llaveros-berserk",name:"Llaveros Berserk x9",category:"Llaveros ~5cm",tag:"Anime",tagClass:"tag-anime",price:"4 €",offer:"3 x 10 €",stock:null,desc:"9 llaveros de Berserk: Marca del Sacrificio, Dragonslayer, Behelit y mas. ~5cm, PLA.",img:null,icon:"✨"}
-];
+const CAT_LABELS = {
+  'todos': 'Todos',
+  'destacados': 'Destacados',
+  'warhammer': 'Warhammer',
+  'esdla': 'Tierra Media',
+  'star wars': 'Star Wars',
+  'pokemon': 'Pokemon',
+  'videojuegos': 'Videojuegos',
+  'gta': 'GTA VI',
+  'anime': 'Anime',
+  'cine': 'Cine',
+  'magic': 'Magic',
+  'hueforge': 'Hueforge',
+  'torres': 'Torres dados',
+  'llaveros': 'Llaveros',
+  'props': 'Props',
+  'armas': 'Armas',
+  'posavasos': 'Posavasos',
+  'marcapaginas': 'Marcapaginas',
+  'complementos': 'Complementos',
+};
 
-function renderCatalog() {
-  var container = document.getElementById('catalog');
-  var groups = {};
-  PRODUCTS.forEach(function(p) {
-    if (!groups[p.category]) groups[p.category] = [];
-    groups[p.category].push(p);
-  });
-  var sortedCats = CATEGORY_ORDER.filter(function(c) { return groups[c]; });
-  var html = '';
-  for (var i = 0; i < sortedCats.length; i++) {
-    var cat = sortedCats[i];
-    var items = groups[cat];
-    html += '<div class="section-label">' + cat + '</div><div class="product-grid">';
-    for (var j = 0; j < items.length; j++) {
-      var p = items[j];
-      var imgHtml = p.img
-        ? '<img class="product-card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy">'
-        : '<div class="product-card-placeholder">' + (p.icon || '🎭') + '</div>';
-      var tagHtml = p.tag ? '<div class="product-card-tag ' + p.tagClass + '">' + p.tag + '</div>' : '';
-      var stockHtml = p.stock ? '<div class="product-card-stock">' + p.stock + '</div>' : '';
-      var offerHtml = p.offer ? '<div class="product-card-offer">' + p.offer + '</div>' : '';
-      html += '<div class="product-card" data-id="' + p.id + '">'
-        + imgHtml + stockHtml + offerHtml
-        + '<div class="product-card-info">' + tagHtml
-        + '<div class="product-card-name">' + p.name + '</div>'
-        + '<div class="product-card-price">' + p.price + '</div>'
-        + '</div></div>';
-    }
-    html += '</div>';
+const CAT_ORDER = ['todos','destacados','warhammer','esdla','star wars','pokemon','videojuegos','gta','cine','anime','magic','hueforge','torres','props','llaveros','posavasos','marcapaginas','complementos'];
+
+let activeCat = 'destacados';
+
+function init() {
+  renderCatFilter();
+  renderGrid();
+  observeCards();
+  if (localStorage.getItem('rp3d-banner-closed')) {
+    document.getElementById('saveBanner').hidden = true;
   }
-  container.innerHTML = html;
 }
 
-function openModal(id) {
-  var p = PRODUCTS.find(function(x) { return x.id === id; });
-  if (!p) return;
-  var imgSlot = document.getElementById('modalImgSlot');
-  imgSlot.innerHTML = p.img
-    ? '<img class="modal-img" src="' + p.img + '" alt="' + p.name + '">'
-    : '<div class="modal-placeholder">' + (p.icon || '🎭') + '</div>';
-  var tagEl = document.getElementById('modalTag');
-  tagEl.innerHTML = p.tag ? '<span class="modal-tag ' + p.tagClass + '">' + p.tag + '</span>' : '';
-  document.getElementById('modalName').textContent = p.name;
-  document.getElementById('modalDesc').textContent = p.desc || '';
-  document.getElementById('modalPrice').textContent = p.price;
-  var offerEl = document.getElementById('modalOffer');
-  if (p.offer) { offerEl.textContent = p.offer; offerEl.hidden = false; } else { offerEl.hidden = true; }
-  var stockEl = document.getElementById('modalStock');
-  if (p.stock) { stockEl.textContent = p.stock; stockEl.hidden = false; } else { stockEl.hidden = true; }
-  document.getElementById('modalWaLabel').textContent = p.price === 'Consultar' ? 'Consultar precio por WhatsApp' : 'Preguntar por WhatsApp';
-  var waMsg = encodeURIComponent('Hola! Me interesa: ' + p.name + '. Te vi en Freak Wars.');
-  document.getElementById('modalWa').href = 'https://wa.me/34687616798?text=' + waMsg;
-  var modal = document.getElementById('modal');
-  modal.hidden = false;
-  requestAnimationFrame(function() { requestAnimationFrame(function() { modal.classList.add('open'); }); });
+function renderCatFilter() {
+  const f = document.getElementById('catFilter');
+  f.innerHTML = CAT_ORDER.map(c =>
+    `<button class="cat-btn${c === activeCat ? ' active' : ''}" data-cat="${c}">${CAT_LABELS[c] || c}</button>`
+  ).join('');
+  f.addEventListener('click', e => {
+    if (!e.target.classList.contains('cat-btn')) return;
+    activeCat = e.target.dataset.cat;
+    f.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === activeCat));
+    renderGrid();
+    observeCards();
+  });
+}
+
+function getFiltered() {
+  if (activeCat === 'todos') return PRODUCTS;
+  if (activeCat === 'destacados') return PRODUCTS.filter(p => p.featured);
+  return PRODUCTS.filter(p => p.cats.includes(activeCat));
+}
+
+function renderGrid() {
+  const items = getFiltered();
+  const g = document.getElementById('grid');
+  g.innerHTML = items.map((p, i) => {
+    const thumb = 'img/' + encodeURIComponent(p.imgs[0]);
+    const multi = p.imgs.length > 1 ? `<span class="card-multi">${p.imgs.length} fotos</span>` : '';
+    const badge = p.unique ? '<span class="card-badge">Pieza unica</span>' : '';
+    const mainCat = p.cats[0];
+    return `<div class="card" data-idx="${PRODUCTS.indexOf(p)}" onclick="openModal(${PRODUCTS.indexOf(p)})">
+      <div class="card-img-wrap">
+        <img src="${thumb}" alt="${p.name}" loading="lazy" decoding="async">
+        ${badge}${multi}
+      </div>
+      <div class="card-info">
+        <div class="card-name">${p.name}</div>
+        <div class="card-cat">${CAT_LABELS[mainCat] || mainCat}</div>
+        <div class="card-price">${p.price}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function observeCards() {
+  const cards = document.querySelectorAll('.card');
+  if (!('IntersectionObserver' in window)) { cards.forEach(c => c.classList.add('visible')); return; }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => obs.observe(c));
+}
+
+let currentSlide = 0;
+let currentProduct = null;
+
+function openModal(idx) {
+  currentProduct = PRODUCTS[idx];
+  currentSlide = 0;
+  const p = currentProduct;
+  const carousel = document.getElementById('modalCarousel');
+  const imgs = p.imgs.map((f, i) =>
+    `<img src="img/${encodeURIComponent(f)}" alt="${p.name}" class="${i === 0 ? 'active' : ''}" loading="lazy">`
+  ).join('');
+  const dots = p.imgs.length > 1 ? `<div class="carousel-nav">${p.imgs.map((_, i) =>
+    `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="goSlide(${i})"></button>`
+  ).join('')}</div>` : '';
+  const arrows = p.imgs.length > 1 ? `<button class="carousel-arrow prev" onclick="prevSlide()">&#8249;</button><button class="carousel-arrow next" onclick="nextSlide()">&#8250;</button>` : '';
+  carousel.innerHTML = imgs + dots + arrows;
+
+  const body = document.getElementById('modalBody');
+  const uniqueBadge = p.unique ? '<div class="modal-badge-unique">Pieza unica</div>' : '';
+  const catLabels = p.cats.map(c => CAT_LABELS[c] || c).join(' &bull; ');
+  body.innerHTML = `
+    <div class="modal-name">${p.name}</div>
+    <div class="modal-cats">${catLabels}</div>
+    ${uniqueBadge}
+    <div class="modal-price">${p.price}</div>
+    <p class="modal-desc">${p.desc}</p>
+  `;
+
+  document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  var modal = document.getElementById('modal');
-  modal.classList.remove('open');
-  setTimeout(function() { modal.hidden = true; }, 300);
+function closeModal(e) {
+  if (e && e.target !== e.currentTarget && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-document.getElementById('catalog').addEventListener('click', function(e) {
-  var card = e.target.closest('.product-card');
-  if (card) openModal(card.dataset.id);
-});
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === e.currentTarget) closeModal();
-});
+function goSlide(i) {
+  currentSlide = i;
+  const carousel = document.getElementById('modalCarousel');
+  carousel.querySelectorAll('img').forEach((img, idx) => img.classList.toggle('active', idx === i));
+  carousel.querySelectorAll('.carousel-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+}
 
-function doShare() {
+function nextSlide() {
+  if (!currentProduct) return;
+  goSlide((currentSlide + 1) % currentProduct.imgs.length);
+}
+
+function prevSlide() {
+  if (!currentProduct) return;
+  goSlide((currentSlide - 1 + currentProduct.imgs.length) % currentProduct.imgs.length);
+}
+
+function sharePage() {
   if (navigator.share) {
-    navigator.share({
-      title: 'RetroPixel3D — Catalogo Freak Wars 2026',
-      text: 'Impresion 3D, miniaturas y props. Catalogo de RetroPixel3D para Freak Wars 2026, Madrid.',
-      url: window.location.href
-    }).catch(function() {});
+    navigator.share({ title: 'RetroPixel3D — Freak Wars 2026', url: location.href });
+  } else {
+    navigator.clipboard.writeText(location.href).then(() => alert('URL copiada al portapapeles'));
   }
 }
 
-var saveBanner = document.getElementById('saveBanner');
-var saveFab = document.getElementById('saveFab');
-var bannerDismissed = false;
-try { bannerDismissed = localStorage.getItem('r3d_banner_dismissed') === '1'; } catch(e) {}
-if (bannerDismissed) saveBanner.hidden = true;
-if (navigator.share) saveFab.hidden = false;
-
-document.getElementById('saveBannerBtn').addEventListener('click', function() {
-  doShare();
-  saveBanner.hidden = true;
-  try { localStorage.setItem('r3d_banner_dismissed', '1'); } catch(e) {}
-});
-document.getElementById('saveBannerClose').addEventListener('click', function() {
-  saveBanner.hidden = true;
-  try { localStorage.setItem('r3d_banner_dismissed', '1'); } catch(e) {}
-});
-saveFab.addEventListener('click', doShare);
-
-renderCatalog();
-
-var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!prefersReduced) {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var el = entry.target;
-        if (el.classList.contains('product-card')) {
-          var grid = el.parentElement;
-          var cards = Array.from(grid.querySelectorAll('.product-card'));
-          var idx = cards.indexOf(el);
-          setTimeout(function() { el.classList.add('visible'); }, idx * 80);
-        } else {
-          el.classList.add('visible');
-        }
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.product-card, .section-label').forEach(function(el) {
-    observer.observe(el);
-  });
+function closeBanner() {
+  document.getElementById('saveBanner').hidden = true;
+  localStorage.setItem('rp3d-banner-closed', '1');
 }
-</script>
 
+// Touch swipe on modal carousel
+let touchStartX = 0;
+document.getElementById('modalCarousel').addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+document.getElementById('modalCarousel').addEventListener('touchend', e => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(diff) > 40) {
+    if (diff < 0) nextSlide(); else prevSlide();
+  }
+}, { passive: true });
+
+init();
+</script>
 </body>
 </html>
