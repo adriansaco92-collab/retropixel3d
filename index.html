@@ -300,6 +300,16 @@ body {
   z-index: 50; display: flex; align-items: center; justify-content: center;
 }
 
+/* Admin indicator */
+.admin-badge {
+  position: fixed; top: 0.5rem; left: 50%; transform: translateX(-50%);
+  background: var(--urgency); color: #fff; font-size: 0.6rem; font-weight: 600;
+  padding: 0.2rem 0.6rem; border-radius: 3px; z-index: 200;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.admin-badge[hidden] { display: none !important; }
+.admin-price { color: var(--urgency) !important; }
+
 /* Footer */
 .footer {
   text-align: center; padding: 1.5rem 0 1rem;
@@ -314,6 +324,7 @@ body {
 </head>
 <body>
 <div class="page">
+  <div class="admin-badge" id="adminBadge" hidden>Modo Admin</div>
 
   <div class="save-banner" id="saveBanner">
     <span class="save-banner-icon">&#9733;</span>
@@ -365,6 +376,7 @@ const PRODUCTS = [
     cats: ['warhammer','props','armas'],
     imgs: ['Espada Sierra 1 (warhammer) (props) (armas).jpg','Espada sierra 2 (warhammer) (props) (armas).jpg','Espada sierra 3 (warhammer) (props) (armas).jpg','Espada sierra 4 (warhammer) (props) (armas).jpg'],
     desc: 'Espada sierra de los Space Marines a escala real, pintada en azul Ultramarine con detalles metalicos. Mas de 80 cm de hoja dentada. Una pieza de cosplay que impone.',
+    adminPrice: '160€',
     price: 'Consultar'
   },
   {
@@ -372,6 +384,7 @@ const PRODUCTS = [
     cats: ['warhammer','props'],
     imgs: ['Casco Space Marine 1 (warhammer) (props).jpg','Casco Space Marine 2 (warhammer) (props).jpg','Casco Space Marine 3 (warhammer) (props).jpg'],
     desc: 'Casco decorativo de Space Marine con acabado Ultramarine y detalles dorados. Cresta, visor y simbolos del capitulo esculpidos con precision. Pieza unica de coleccion.',
+    adminPrice: '60€',
     price: 'Consultar'
   },
   {
@@ -379,6 +392,7 @@ const PRODUCTS = [
     cats: ['warhammer','props','armas'],
     imgs: ['Bolter (warhammer) (props) (armas).jpg','Bolter 2 (warhammer) (props) (armas).jpg'],
     desc: 'Bolter estandar de los Ultramarines a escala 1:1 con el aguila imperial en dorado. Acabado envejecido de batalla.',
+    adminPrice: '80€',
     price: 'Consultar'
   },
   {
@@ -386,6 +400,7 @@ const PRODUCTS = [
     cats: ['warhammer','props','armas'],
     imgs: ['Pistola Bolter (warhammer) (props) (armas).jpg','Pistola Bolter 2 (warhammer) (props) (armas).jpg'],
     desc: 'Pistola Bolter compacta en rojo y negro. Pintada a mano con acabado envejecido de combate y detalles metalicos.',
+    adminPrice: '70€',
     price: 'Consultar'
   },
   {
@@ -393,6 +408,7 @@ const PRODUCTS = [
     cats: ['warhammer','props','armas'],
     imgs: ['Rifle Bolter (warhammer) (props) (armas).jpg','Rifle Bolter 2 (warhammer) (props) (armas).jpg'],
     desc: 'Rifle Bolter pesado con la cruz templaria negra. Acabado rojo intenso con desgaste de combate. Cargador, mira y granada bajo cañon.',
+    adminPrice: '80€',
     price: 'Consultar'
   },
   {
@@ -400,6 +416,7 @@ const PRODUCTS = [
     cats: ['warhammer','props','armas'],
     imgs: ['Lanzallamas (warhammer) (props) (armas).jpg'],
     desc: 'Lanzallamas de los Space Marines con deposito de promethium y multiples bocas. Pintado en rojo Blood Angels con detalles desgastados.',
+    adminPrice: '70€',
     price: 'Consultar'
   },
   {
@@ -407,6 +424,7 @@ const PRODUCTS = [
     cats: ['warhammer','props'],
     imgs: ['Cuchillo combate Spaces Marines (Warhammer) (props).jpg'],
     desc: 'Cuchillo de combate Space Marine con guarda de engranaje y calavera imperial. Acabado en negro envejecido y bronce. Pieza decorativa imponente.',
+    adminPrice: '30€',
     price: 'Consultar'
   },
   {
@@ -415,294 +433,294 @@ const PRODUCTS = [
     imgs: ['Portal invocacion 1 (warhammer).jpg','Portal invocacion 4 (warhammer).jpg'],
     videos: ['Portal invocacion 2 (warhammer).mp4','Portal invocacion 3 (warhammer).mp4'],
     desc: 'Portal de invocacion gotico en ruinas con columnas y arcos detallados. Incluye etiqueta NFC: pon tu movil sobre el arco y se activa una animacion del portal de energia del Warp. Escenografia premium para Warhammer.',
-    price: 'Consultar'
+    price: '10€'
   },
   {
     id: 'terreno-destruido', name: 'Terreno destruido', featured: false,
     cats: ['warhammer'],
     imgs: ['Terreno destruido (warhammer).jpg'],
     desc: 'Set de ruinas goticas imperiales para escenografia. Edificios en ruinas con ventanales ojivales y detalles arquitectonicos del Imperium. Tres piezas modulares.',
-    price: 'Consultar'
+    price: '7€'
   },
   {
     id: 'sellos-cera-warhammer', name: 'Sellos de cera Warhammer', featured: false,
     cats: ['warhammer'],
     imgs: ['Sellos cera Warhammer (warhammer).jpg'],
     desc: 'Coleccion de 8 sellos de cera con iconos de facciones de Warhammer: Caos, Tiranidos, Dragonborn y mas. Ideales para cartas, sobres o decoracion.',
-    price: 'Consultar'
+    price: '1€ / unidad'
   },
   {
     id: 'gandalf-vs-balrog', name: 'Gandalf vs Balrog', featured: true, unique: true,
     cats: ['esdla'],
     imgs: ['Gandalf vs Balrog (ESDLA).jpg'],
     desc: 'Diorama circular con la escena epica del puente de Khazad-dum. Gandalf enfrenta al Balrog con un efecto de color logrado por la placa de impresion. Pieza decorativa de coleccion.',
-    price: 'Consultar'
+    price: '8€'
   },
   {
     id: 'torre-minas-tirith', name: 'Torre dados Minas Tirith', featured: true,
     cats: ['esdla','torres'],
     imgs: ['Torre dados Minas Tirith (EDLA) (torres).jpg','Torre dados Minas Tirith 2 (ESDLA) (torres).jpg'],
     desc: 'Torre de dados con forma de Minas Tirith, la ciudad blanca de Gondor, con el Anillo Unico a sus pies. Cada nivel esta esculpido con detalle arquitectonico. Funcional y decorativa.',
-    price: 'Consultar'
+    price: '15€'
   },
   {
     id: 'mapa-erebor', name: 'Mapa de Erebor', featured: true,
     cats: ['esdla'],
     imgs: ['Mapa de Erebor (ESDLA).jpg'],
     desc: 'Replica del mapa de Thorin con la Montana Solitaria, runas enanas y Smaug en relieve. Impreso en capas con efecto pergamino. Incluye etiqueta NFC: al escanearla con el movil, reproduce la BSO de El Hobbit.',
-    price: 'Consultar'
+    price: '10€'
   },
   {
     id: 'silueta-comunidad', name: 'Silueta La Comunidad', featured: true,
     cats: ['esdla'],
     imgs: ['Silueta La Comunidad (ESDLA).jpg'],
     desc: 'La Comunidad del Anillo en silueta sobre la hoja de Narsil, con las montañas de la Tierra Media de fondo. Filamento multicolor iridiscente. Pieza de estanteria espectacular.',
-    price: 'Consultar'
+    price: '6€'
   },
   {
     id: 'sujetalibros-argonath', name: 'Sujetalibros Argonath', featured: false,
     cats: ['esdla'],
     imgs: ['Sujetalibros Argonath (ESDLA).jpg','Sujetalibros Argonath 2 (ESDLA).jpg'],
     desc: 'Pareja de sujetalibros con las estatuas de los Argonath, los Pilares de los Reyes a orillas del Anduin. Pintados en piedra envejecida. Funcionales y decorativos.',
-    price: 'Consultar'
+    price: '12€'
   },
   {
     id: 'sujetalibros-esdla', name: 'Sujetalibros ESDLA', featured: true,
     cats: ['esdla'],
     imgs: ['Sujetalibros ESDLA (ESDLA).jpg'],
     desc: 'Pareja de sujetalibros con las siluetas de la Comunidad bajo el Anillo Unico en escritura elfica dorada. Diseño minimalista y elegante.',
-    price: 'Consultar'
+    price: '8€'
   },
   {
     id: 'sellos-cera-esdla', name: 'Sellos de cera ESDLA', featured: false,
     cats: ['esdla'],
     imgs: ['Sellos cera ESDLA (ESDLA).jpg'],
     desc: 'Coleccion de 8 sellos de cera con iconos de la Tierra Media: Ojo de Sauron, Hoja de Lorien, Arbol de Gondor, Mano de Saruman y mas.',
-    price: 'Consultar'
+    price: '1€ / unidad'
   },
   {
     id: 'grogu-babu', name: 'Grogu y Babu Frik', featured: true,
     cats: ['star wars'],
     imgs: ['Grogu y Babuu Frik (Star Wars).jpg'],
     desc: 'Figura de Grogu (Baby Yoda) abrazando a Babu Frik. Pintada a mano con todo el detalle de las texturas de piel, ropas y expresiones. Pura ternura galáctica.',
-    price: 'Consultar'
+    price: '25€'
   },
   {
     id: 'hueforge-sw', name: 'Hueforge Star Wars', featured: false,
     cats: ['star wars','hueforge'],
     imgs: ['Hueforge 1 (Star Wars) (hueforge).jpg'],
     desc: 'Par de cuadros hueforge con planos tecnicos imperiales: Droide Buitre y AT-ST. Efecto blueprint sobre fondo metalico con escritura Aurebesh.',
-    price: 'Consultar'
+    price: '5€ / unidad'
   },
   {
     id: 'gengar', name: 'Gengar', featured: true,
     cats: ['pokemon'],
     imgs: ['Gengar (pokemon).jpg'],
     desc: 'Figura de Gengar con su sonrisa malevola y ojos rojos. Impreso en purpura con acabado liso. Tamaño ideal para escritorio o estanteria.',
-    price: 'Consultar'
+    price: '8€'
   },
   {
     id: 'cuadro-pikachu', name: 'Cuadro Pikachu', featured: true,
     cats: ['pokemon'],
     imgs: ['Cuadro Pikachu (pokemon).jpg'],
     desc: 'Diorama 3D tipo shadow box con Pikachu en un bosque. Multiples capas crean profundidad real. Marco verde con detalle de Pokeball.',
-    price: 'Consultar'
+    price: '7€'
   },
   {
     id: 'trio-legendarios', name: 'Cuadros Trio legendarios', featured: true,
     cats: ['pokemon'],
     imgs: ['Cuadros Trio legendarios (Pokemon).jpg'],
     desc: 'Set de 3 cuadros con pantalla de batalla retro Game Boy: Articuno, Zapdos y Moltres. Pixel art impreso en 3D con relieve. Nostalgia pura de primera generacion.',
-    price: 'Consultar'
+    price: '5€/ud · Pack 3: 12€'
   },
   {
     id: 'posavasos-pokemon', name: 'Posavasos Pokemon', featured: false,
     cats: ['pokemon','posavasos'],
     imgs: ['Posavasos Pokemon (posavasos) (pokemon).jpg','Posavasos pokemon 0 (pokemon).jpg','Posavasos pokemon 1 (pokemon).jpg','Posavasos pokemon 2 (pokemon).jpg','Posavasos pokemon 3 (pokemon).jpg','Posavasos pokemon 4 (pokemon).jpg'],
     desc: 'Set de posavasos con caratulas de Pokemon Game Boy: Azul y Amarillo en hueforge multicolor. Funcionales y coleccionables.',
-    price: 'Consultar'
+    price: '1,50€ / unidad'
   },
   {
     id: 'lampara-gta', name: 'Lampara LED GTA VI', featured: true,
     cats: ['gta','videojuegos'],
     imgs: ['Lampara LED GTA VI (GTA) (videojuegos).jpg','Lampara LED GTA VI 2 (GTA) (videojuegos).jpg'],
     desc: 'Lampara LED con el logo de GTA VI: la V y la I con palmeras en silueta. Incluye mando para elegir entre distintos colores de iluminacion. Pieza perfecta para el setup gaming.',
-    price: 'Consultar'
+    price: '30€'
   },
   {
     id: 'silueta-lucia', name: 'Silueta Lucia GTA VI', featured: true,
     cats: ['gta','videojuegos'],
     imgs: ['Silueta Lucia GTA VI (GTA) (videojuegos).jpg'],
     desc: 'Silueta de Lucia de GTA VI con un efecto de color logrado por la placa de impresion. Figura decorativa de escritorio sobre peana. Efecto visual que cambia segun el angulo de luz.',
-    price: 'Consultar'
+    price: '2€'
   },
   {
     id: 'llaveros-gta', name: 'Llaveros GTA VI', featured: false,
     cats: ['gta','llaveros','videojuegos'],
     imgs: ['Llaveros GTA VI (GTA) (llaveros) (videojuegos).jpg'],
     desc: 'Llaveros con el logo de GTA VI. Diseño compacto y resistente para el dia a dia.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'anor-londo', name: 'Anor Londo', featured: true,
     cats: ['videojuegos'],
     imgs: ['Anor Londo (videojuegos).jpg','Anor Londo 2 (videojuegos).jpg'],
     desc: 'Replica de la catedral gotica de Anor Londo de Dark Souls. Rosetones, arbotantes, pinaculos y torres con un nivel de detalle asombroso. Pieza de exposicion para fans del Souls.',
-    price: 'Consultar'
+    price: '12€'
   },
   {
     id: 'mascara-aku-aku', name: 'Mascara Aku Aku', featured: true,
     cats: ['videojuegos'],
     imgs: ['Máscara Aku Aku (videojuegos).jpg'],
     desc: 'La mascara protectora de Crash Bandicoot a todo color: madera, plumas multicolores y esa sonrisa inconfundible. Para colgar en la pared o llevar de prop.',
-    price: 'Consultar'
+    price: '7€'
   },
   {
     id: 'espadas-link', name: 'Espadas de Link', featured: false,
     cats: ['videojuegos'],
     imgs: ['Espadas Link (Zelda) (videojuegos).jpg'],
     desc: 'Dos replicas de la Master Sword en su pedestal del Templo del Tiempo. Detalle Hyliano en azul y verde. Piezas decorativas miniatura.',
-    price: 'Consultar'
+    price: '8€'
   },
   {
     id: 'cuadros-retro', name: 'Cuadros retro', featured: true,
     cats: ['videojuegos'],
     imgs: ['Cuadros retro (videojuegos).jpg'],
     desc: 'Set de 4 cuadros 3D retro: mapa de Pokemon Rojo, mapa de Zelda, pantalla de Tetris y Space Invaders. Pixel art con relieve real. Cada cuadro enmarcado individualmente.',
-    price: 'Consultar'
+    price: '1x10€ · 2x15€'
   },
   {
     id: 'tarot-cult', name: 'Cartas tarot Cult of the Lamb', featured: true,
     cats: ['videojuegos'],
     imgs: ['Cartas tarot Cult of the lambs (Videojuegos).jpg'],
     desc: 'Coleccion de 7 cartas de tarot del universo de Cult of the Lamb impresas en 3D: The Fool, The Magician, The Empress, The Emperor, The Hierophant, The Devil y The High Priestess.',
-    price: 'Consultar'
+    price: '1,50€ / unidad'
   },
   {
     id: 'carta-black-lotus', name: 'Carta Black Lotus 3D', featured: true, unique: true,
     cats: ['magic'],
     imgs: ['Carta Black Lotus 3D (Magic).jpg'],
     desc: 'Replica en 3D de la mitica Black Lotus de Magic: The Gathering. La flor emerge en relieve con acabado en resina sobre la ilustracion. Marco, texto y borde fieles al original. Pieza de coleccionista.',
-    price: 'Consultar'
+    price: '20€'
   },
   {
     id: 'desdentao', name: 'Desdentao y Light Fury', featured: true,
     cats: ['cine'],
     imgs: ['Desdentao y Light Fury (cine).jpg'],
     desc: 'Pareja de dragones articulados de Como Entrenar a tu Dragon: Desdentao en negro y Light Fury en blanco. Alas, cola y patas moviles.',
-    price: 'Consultar'
+    price: '1x10€ · 2x15€'
   },
   {
     id: 'fujur', name: 'Fujur articulado', featured: true,
     cats: ['cine'],
     imgs: ['Fujur articulado (cine).jpg','Fujur articulado 2 (cine).jpg'],
     desc: 'Fujur, el Dragon de la Suerte de La Historia Interminable, articulado. Cuerpo serpenteante con escamas detalladas y cara expresiva. Una pieza nostalgica unica.',
-    price: 'Consultar'
+    price: '6€'
   },
   {
     id: 'posavasos-goonies', name: 'Posavasos Los Goonies', featured: false,
     cats: ['posavasos','cine'],
     imgs: ['Posavasos Los Goonies (posavasos) (cine).jpg'],
     desc: 'Par de posavasos de Los Goonies: silueta de Sloth y el clasico "Goonies Never Say Die" con calavera pirata. Impresos en blanco y azul.',
-    price: 'Consultar'
+    price: '1,50€ / unidad'
   },
   {
     id: 'hueforge-anime', name: 'Hueforge Anime', featured: false,
     cats: ['hueforge','anime'],
     imgs: ['Hueforge 2 (hueforge) (anime).jpg','Hueforge 3 (hueforge) (anime).jpg','Hueforge 4 (hueforge) (anime).jpg'],
     desc: 'Cuadros hueforge de anime: Junji Ito, One Piece (Jolly Roger al atardecer) y Nezuko de Demon Slayer. Degradados de color imposibles logrados capa a capa.',
-    price: 'Consultar'
+    price: '5€/ud · Going Merry: 10€'
   },
   {
     id: 'cuadros-3d', name: 'Cuadros 3D', featured: true,
     cats: ['hueforge'],
     imgs: ['Cuadros 3D (hueforge).jpg'],
     desc: 'Cuadros de pared con efecto tridimensional de lineas: Sin Cara (El Viaje de Chihiro), Deadpool, Majin Buu y Stitch. Tecnica unica de relieve por capas.',
-    price: 'Consultar'
+    price: '7€'
   },
   {
     id: 'marcapaginas', name: 'Marcapaginas', featured: true,
     cats: ['marcapaginas','anime','star wars'],
     imgs: ['Marcapáginas (marcapáginas) (anime) (Star Wars).jpg'],
     desc: 'Coleccion de marcapaginas impresos en 3D: diseños de Star Wars (X-Wing, TIE Fighter, Estrella de la Muerte), Demon Slayer (Tanjiro, espada Nichirin), samurais y Gandalf. Rojos, negros y blancos.',
-    price: 'Consultar'
+    price: '2€ / unidad'
   },
   {
     id: 'torre-calavera', name: 'Torre dados calavera', featured: true,
     cats: ['warhammer','torres'],
     imgs: ['Torre dados calavera (Warhammer) (Torres).jpg','Torre dados calavera 2 (warhammer) (torres).jpg'],
     desc: 'Torre de dados con forma de calavera mecanica con tubos y cables. Los dados entran por la parte superior y salen por la boca. Estetica grimdark total.',
-    price: 'Consultar'
+    price: '15€'
   },
   {
     id: 'jarras-tiradados', name: 'Jarras tiradados', featured: false,
     cats: ['torres'],
     imgs: ['Jarras tiradados (torres).jpg','Jarras tiradados 2 (torres).jpg'],
     desc: 'Jarra medieval que funciona como tiradados. Estilo taberna con grabados de dados poliedricos y asa rustica. Las dos fotos muestran la misma jarra desde distintos angulos.',
-    price: 'Consultar'
+    price: '12€'
   },
   {
     id: 'libreria-tiradados', name: 'Libreria tiradados', featured: false,
     cats: ['torres'],
     imgs: ['Libreria tiradados (torres).jpg','Libreria tiradados 2 (torres).jpg'],
     desc: 'Estanteria miniatura con libros de colores que es en realidad un tiradados. Los dados ruedan entre los libros y caen por la apertura inferior. Original y funcional.',
-    price: 'Consultar'
+    price: '10€'
   },
   {
     id: 'llaveros', name: 'Llaveros variados', featured: false,
     cats: ['llaveros'],
     imgs: ['Llaveros 1 (llaveros).jpg','Llaveros 2 (llaveros).jpg'],
     desc: 'Surtido de llaveros: logo de Batman, marca del sacrificio de Berserk en rojo, y cascos de Hollow Knight en blanco. Resistentes y con cadena incluida.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'llaveros-bolter', name: 'Llaveros Bolter funcionales', featured: false,
     cats: ['llaveros','warhammer'],
     imgs: ['Llaveros Bolter funcionales (llaveros) (warhammer).jpg'],
     desc: 'Llaveros con forma de Bolter miniatura que disparan las bolas blancas incluidas. Funcionales y con un nivel de detalle sorprendente. Para fans de Warhammer 40K.',
-    price: 'Consultar'
+    price: '5€ / unidad'
   },
   {
     id: 'llaveros-halloween', name: 'Llaveros halloween', featured: false,
     cats: ['pokemon','star wars','llaveros'],
     imgs: ['Llaveros halloween (pokemon) (star wars) (llaveros).jpg'],
     desc: 'Llaveros tematicos de Halloween con diseños de Pokemon y Star Wars. Edicion limitada.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'llaveros-one-piece', name: 'Llaveros One Piece', featured: false,
     cats: ['anime','llaveros'],
     imgs: ['Llaveros One Piece (anime) (llaveros).jpg'],
     desc: 'Llaveros con iconos de One Piece. Perfectos para fans de la tripulacion del Sombrero de Paja.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'llaveros-solo-leveling', name: 'Llaveros Solo Leveling', featured: false,
     cats: ['anime','llaveros'],
     imgs: ['Llaveros Solo leveling (anime)(llaveros).jpg'],
     desc: 'Llaveros inspirados en Solo Leveling, el manhwa de cazadores de mazmorras.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'llaveros-warhammer', name: 'Llaveros Warhammer', featured: false,
     cats: ['warhammer','llaveros'],
     imgs: ['Llaveros warhammer (warhammer) (llaveros).jpg'],
     desc: 'Llaveros con insignias y simbolos de Warhammer 40K. Diseños variados de los distintos capitulos.',
-    price: 'Consultar'
+    price: '1x3€ · 2x5€'
   },
   {
     id: 'reglas-articuladas', name: 'Reglas articuladas', featured: false,
     cats: ['warhammer','complementos'],
     imgs: ['Reglas articuladas (Warhammer)(complementos).jpg','Reglas articuladas 2 (Warhammer)(complementos).jpg'],
     desc: 'Reglas articuladas numeradas para medir distancias en Warhammer. Se pliegan para guardar y se despliegan hasta 24 pulgadas. Azules y negras, claras y resistentes.',
-    price: 'Consultar'
+    price: '12€ (pack 6 uds)'
   },
   {
     id: 'porta-latas', name: 'Porta latas', featured: false,
     cats: ['complementos'],
     imgs: ['Porta latas (complementos).jpg'],
     desc: 'Soporte para latas con agarre tactico estilo militar. Diseño robusto en negro mate. Util para el setup de mesa o el escritorio.',
-    price: 'Consultar'
+    price: '12€'
   },
 ];
 
@@ -731,6 +749,12 @@ const CAT_LABELS = {
 const CAT_ORDER = ['todos','destacados','warhammer','esdla','star wars','pokemon','videojuegos','gta','cine','anime','magic','hueforge','torres','props','llaveros','posavasos','marcapaginas','complementos'];
 
 let activeCat = 'destacados';
+let isAdmin = new URLSearchParams(location.search).has('admin');
+
+function getPrice(p) {
+  if (isAdmin && p.adminPrice) return p.adminPrice;
+  return p.price;
+}
 
 function init() {
   renderCatFilter();
@@ -739,6 +763,25 @@ function init() {
   if (localStorage.getItem('rp3d-banner-closed')) {
     document.getElementById('saveBanner').hidden = true;
   }
+  updateAdminUI();
+  // Secret tap: 5 taps on logo toggles admin
+  let tapCount = 0, tapTimer;
+  document.querySelector('.hero-logo').addEventListener('click', () => {
+    tapCount++;
+    clearTimeout(tapTimer);
+    tapTimer = setTimeout(() => { tapCount = 0; }, 800);
+    if (tapCount >= 5) {
+      tapCount = 0;
+      isAdmin = !isAdmin;
+      updateAdminUI();
+      renderGrid();
+      observeCards();
+    }
+  });
+}
+
+function updateAdminUI() {
+  document.getElementById('adminBadge').hidden = !isAdmin;
 }
 
 function renderCatFilter() {
@@ -777,7 +820,7 @@ function renderGrid() {
       <div class="card-info">
         <div class="card-name">${p.name}</div>
         <div class="card-cat">${CAT_LABELS[mainCat] || mainCat}</div>
-        <div class="card-price">${p.price}</div>
+        <div class="card-price${isAdmin && p.adminPrice ? ' admin-price' : ''}">${getPrice(p)}</div>
       </div>
     </div>`;
   }).join('');
@@ -828,7 +871,7 @@ function openModal(idx) {
     <div class="modal-name">${p.name}</div>
     <div class="modal-cats">${catLabels}</div>
     ${uniqueBadge}
-    <div class="modal-price">${p.price}</div>
+    <div class="modal-price${isAdmin && p.adminPrice ? ' admin-price' : ''}">${getPrice(p)}</div>
     <p class="modal-desc">${p.desc}</p>
     <div class="modal-contact">
       <a href="https://wa.me/34687616798?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp">
