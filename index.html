@@ -159,6 +159,19 @@ body {
   font-size: 0.55rem; font-weight: 600; text-transform: uppercase;
   padding: 0.15rem 0.4rem; border-radius: 3px; letter-spacing: 0.04em;
 }
+.card-badge-nfc {
+  position: absolute; top: 0.35rem; left: 0.35rem;
+  background: #2573B8; color: #fff;
+  font-size: 0.55rem; font-weight: 600; text-transform: uppercase;
+  padding: 0.15rem 0.4rem; border-radius: 3px; letter-spacing: 0.04em;
+}
+.card-badge + .card-badge-nfc { top: 1.55rem; }
+.modal-badge-nfc {
+  display: inline-block; background: #2573B8; color: #fff;
+  font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
+  padding: 0.2rem 0.5rem; border-radius: 3px; letter-spacing: 0.04em;
+  margin-bottom: 0.6rem; margin-left: 0.3rem;
+}
 .card-multi {
   position: absolute; top: 0.35rem; right: 0.35rem;
   background: rgba(0,0,0,0.65); color: #fff;
@@ -460,7 +473,7 @@ const PRODUCTS = [
     price: 'Consultar'
   },
   {
-    id: 'portal-invocacion', name: 'Portal de invocacion', featured: true,
+    id: 'portal-invocacion', name: 'Portal de invocacion', featured: true, nfc: true,
     cats: ['warhammer'],
     imgs: ['Portal invocacion 1 (warhammer).jpg','Portal invocacion 4 (warhammer).jpg'],
     videos: ['Portal invocacion 2 (warhammer).mp4','Portal invocacion 3 (warhammer).mp4'],
@@ -496,7 +509,7 @@ const PRODUCTS = [
     price: '15€'
   },
   {
-    id: 'mapa-erebor', name: 'Mapa de Erebor', featured: true, unique: true,
+    id: 'mapa-erebor', name: 'Mapa de Erebor', featured: true, unique: true, nfc: true,
     cats: ['esdla'],
     imgs: ['Mapa de Erebor (ESDLA).jpg'],
     desc: 'Replica del mapa de Thorin con la Montana Solitaria, runas enanas y Smaug en relieve. Impreso en capas con efecto pergamino. Incluye etiqueta NFC: al escanearla con el movil, reproduce la BSO de El Hobbit.',
@@ -854,6 +867,7 @@ function renderGrid() {
     const multi = p.imgs.length > 1 ? `<span class="card-multi">${p.imgs.length} fotos</span>` : '';
     const badge = p.unique ? '<span class="card-badge">Pieza unica</span>' : '';
     const offerBadge = isOffer(p) ? '<span class="card-offer-badge">Oferta</span>' : '';
+    const nfcBadge = p.nfc ? '<span class="card-badge-nfc">Incluye NFC</span>' : '';
     const mainCat = p.cats[0];
     const priceClass = isAdmin && p.adminPrice ? ' admin-price' : '';
     const priceHtml = isOffer(p)
@@ -862,7 +876,7 @@ function renderGrid() {
     return `<div class="card" data-idx="${PRODUCTS.indexOf(p)}" onclick="openModal(${PRODUCTS.indexOf(p)})">
       <div class="card-img-wrap">
         <img src="${thumb}" alt="${p.name}" loading="lazy" decoding="async">
-        ${badge}${offerBadge}${multi}
+        ${badge}${nfcBadge}${offerBadge}${multi}
       </div>
       <div class="card-info">
         <div class="card-name">${p.name}</div>
@@ -917,7 +931,7 @@ function openModal(idx) {
   body.innerHTML = `
     <div class="modal-name">${p.name}</div>
     <div class="modal-cats">${catLabels}</div>
-    ${uniqueBadge}
+    ${uniqueBadge}${p.nfc ? '<span class="modal-badge-nfc">Incluye NFC</span>' : ''}
     ${isOffer(p) ? `<div class="modal-price-offer"><div class="modal-offer-label">Oferta</div><div class="modal-price">${getPrice(p)}</div></div>` : `<div class="modal-price${isAdmin && p.adminPrice ? ' admin-price' : ''}">${getPrice(p)}</div>`}
     <p class="modal-desc">${p.desc}</p>
     <div class="modal-contact">
