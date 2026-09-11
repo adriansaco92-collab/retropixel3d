@@ -749,7 +749,7 @@ const CAT_LABELS = {
 const CAT_ORDER = ['todos','destacados','warhammer','esdla','star wars','pokemon','videojuegos','gta','cine','anime','magic','hueforge','torres','props','llaveros','posavasos','marcapaginas','complementos'];
 
 let activeCat = 'destacados';
-let isAdmin = new URLSearchParams(location.search).has('admin');
+let isAdmin = new URLSearchParams(location.search).get('admin') === '2806';
 
 function getPrice(p) {
   if (isAdmin && p.adminPrice) return p.adminPrice;
@@ -772,7 +772,13 @@ function init() {
     tapTimer = setTimeout(() => { tapCount = 0; }, 800);
     if (tapCount >= 5) {
       tapCount = 0;
-      isAdmin = !isAdmin;
+      if (isAdmin) {
+        isAdmin = false;
+      } else {
+        const pin = prompt('PIN:');
+        if (pin !== '2806') return;
+        isAdmin = true;
+      }
       updateAdminUI();
       renderGrid();
       observeCards();
