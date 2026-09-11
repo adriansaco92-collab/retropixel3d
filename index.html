@@ -964,8 +964,7 @@ function renderGrid() {
   const g = document.getElementById('grid');
   const oos = getOos();
   g.innerHTML = items.map((p, i) => {
-    const isOut = oos.includes(p.id);
-    if (isOut && !isAdmin) return '';
+    const isOut = oos.includes(p.id) && isAdmin;
     const thumb = 'img/' + encodeURIComponent(p.imgs[0]);
     const multi = p.imgs.length > 1 ? `<span class="card-multi">${p.imgs.length} fotos</span>` : '';
     const badge = p.unique ? '<span class="card-badge">Pieza unica</span>' : '';
