@@ -417,6 +417,14 @@ body {
   text-decoration: underline;
 }
 
+.btn-restock {
+  display: block; width: 100%; margin: 0.5rem 0;
+  padding: 0.5rem; border-radius: 6px; border: 1px solid var(--urgency);
+  background: rgba(166,61,47,0.15); color: var(--urgency);
+  font-size: 0.8rem; font-weight: 600; font-family: inherit; cursor: pointer;
+}
+.btn-restock:active { opacity: 0.7; }
+
 /* CTA */
 .cta-section {
   margin-top: 2rem; padding: 1.2rem; background: var(--surface);
@@ -1033,11 +1041,14 @@ function openModal(idx) {
   const uniqueBadge = p.unique ? '<div class="modal-badge-unique">Pieza unica</div>' : '';
   const catLabels = p.cats.map(c => CAT_LABELS[c] || c).join(' &bull; ');
   const waMsg = encodeURIComponent('Hola! Me interesa "' + p.name + '" del catalogo de Freak Wars 2026');
+  const isOutOfStock = isAdmin && getOos().includes(p.id);
+  const restockBtn = isOutOfStock ? `<button class="btn-restock" onclick="restockProduct('${p.id}')">&#128230; Reponer stock</button>` : '';
   body.innerHTML = `
     <div class="modal-name">${p.name}</div>
     <div class="modal-cats">${catLabels}</div>
     ${uniqueBadge}${p.nfc ? '<span class="modal-badge-nfc">Incluye NFC</span>' : ''}
     ${isOffer(p) ? `<div class="modal-price-offer"><div class="modal-offer-label">Oferta</div><div class="modal-price">${getPrice(p)}</div></div>` : `<div class="modal-price${isAdmin && p.adminPrice ? ' admin-price' : ''}">${getPrice(p)}</div>`}
+    ${restockBtn}
     <p class="modal-desc">${p.desc}</p>
     <div class="modal-contact">
       <a href="https://wa.me/34687616798?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp">
@@ -1181,6 +1192,16 @@ function openSalesSummary() {
 
 function closeSalesSummary() {
   document.getElementById('salesSummary').hidden = true;
+}
+
+function restockProduct(id) {
+  const list = getOos().filter(x => x !== id);
+  saveOos(list);
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('#modalCarousel video').forEach(v => v.pause());
+  renderGrid();
+  observeCards();
 }
 
 function resetSales() {
