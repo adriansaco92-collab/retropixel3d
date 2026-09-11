@@ -319,6 +319,104 @@ body {
 }
 .modal-contact svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
+/* Admin sales */
+.admin-sales-btn {
+  display: none; background: var(--surface); border: 1px solid var(--gold-dim);
+  color: var(--gold); font-size: 0.7rem; font-weight: 600; font-family: inherit;
+  padding: 0.3rem 0.7rem; border-radius: 4px; cursor: pointer;
+  margin-top: 0.4rem;
+}
+.admin-sales-btn.visible { display: inline-flex; align-items: center; gap: 0.3rem; }
+.card-sell-btn {
+  position: absolute; bottom: 0.35rem; right: 0.35rem;
+  background: #25A867; color: #fff; border: none; border-radius: 50%;
+  width: 28px; height: 28px; font-size: 0.85rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4); z-index: 3;
+}
+.card-sell-btn:active { transform: scale(0.9); }
+.card.out-of-stock .card-img-wrap img { filter: grayscale(0.8) brightness(0.6); }
+.card.out-of-stock .card-info { opacity: 0.45; }
+.card-oos-label {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  background: rgba(0,0,0,0.75); color: #fff; font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 4px;
+  letter-spacing: 0.06em; z-index: 3;
+}
+.sale-dialog {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 300; display: flex; align-items: center; justify-content: center;
+}
+.sale-dialog[hidden] { display: none !important; }
+.sale-dialog-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.2rem; width: 90%; max-width: 320px;
+}
+.sale-dialog-title {
+  font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 700;
+  color: var(--gold); margin-bottom: 0.8rem;
+}
+.sale-dialog label {
+  display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.3rem;
+}
+.sale-dialog input[type="number"] {
+  width: 100%; background: var(--ground); border: 1px solid var(--border);
+  color: var(--text); font-size: 1rem; font-family: inherit;
+  padding: 0.5rem; border-radius: 6px; margin-bottom: 0.6rem;
+  -webkit-appearance: none;
+}
+.sale-dialog-check {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.8rem;
+}
+.sale-dialog-check input { width: 18px; height: 18px; accent-color: var(--urgency); }
+.sale-dialog-btns { display: flex; gap: 0.5rem; }
+.sale-dialog-btns button {
+  flex: 1; padding: 0.5rem; border-radius: 6px; font-size: 0.8rem;
+  font-weight: 600; font-family: inherit; cursor: pointer; border: none;
+}
+.sale-btn-confirm { background: #25A867; color: #fff; }
+.sale-btn-cancel { background: var(--ground); color: var(--text-secondary); border: 1px solid var(--border) !important; }
+.sales-summary {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 300; display: flex; align-items: center; justify-content: center;
+}
+.sales-summary[hidden] { display: none !important; }
+.sales-summary-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.2rem; width: 90%; max-width: 360px;
+  max-height: 80vh; overflow-y: auto;
+}
+.sales-summary-title {
+  font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700;
+  color: var(--gold); margin-bottom: 0.3rem;
+}
+.sales-summary-total {
+  font-size: 1.4rem; font-weight: 700; color: #25A867; margin-bottom: 0.8rem;
+}
+.sales-summary-list { list-style: none; }
+.sales-summary-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+.sales-summary-list li:last-child { border-bottom: none; }
+.sales-summary-list .sale-name { flex: 1; color: var(--text); }
+.sales-summary-list .sale-qty { width: 2rem; text-align: center; color: var(--gold); font-weight: 600; }
+.sales-summary-list .sale-amount { width: 4rem; text-align: right; color: #25A867; font-weight: 600; }
+.sales-summary-close {
+  margin-top: 0.8rem; width: 100%; padding: 0.5rem;
+  background: var(--ground); color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: 6px;
+  font-size: 0.8rem; font-family: inherit; cursor: pointer;
+}
+.sales-summary-reset {
+  margin-top: 0.4rem; width: 100%; padding: 0.4rem;
+  background: none; color: var(--urgency); border: none;
+  font-size: 0.65rem; font-family: inherit; cursor: pointer;
+  text-decoration: underline;
+}
+
 /* CTA */
 .cta-section {
   margin-top: 2rem; padding: 1.2rem; background: var(--surface);
@@ -370,6 +468,7 @@ body {
 <body>
 <div class="page">
   <div class="admin-badge" id="adminBadge" hidden>Modo Admin</div>
+  <button class="admin-sales-btn" id="salesBtn" onclick="openSalesSummary()">&#128176; Ventas</button>
 
   <div class="save-banner" id="saveBanner">
     <span class="save-banner-icon">&#9733;</span>
@@ -833,6 +932,7 @@ function init() {
 
 function updateAdminUI() {
   document.getElementById('adminBadge').hidden = !isAdmin;
+  document.getElementById('salesBtn').classList.toggle('visible', isAdmin);
 }
 
 function renderCatFilter() {
@@ -862,7 +962,10 @@ function isOffer(p) {
 function renderGrid() {
   const items = getFiltered();
   const g = document.getElementById('grid');
+  const oos = getOos();
   g.innerHTML = items.map((p, i) => {
+    const isOut = oos.includes(p.id);
+    if (isOut && !isAdmin) return '';
     const thumb = 'img/' + encodeURIComponent(p.imgs[0]);
     const multi = p.imgs.length > 1 ? `<span class="card-multi">${p.imgs.length} fotos</span>` : '';
     const badge = p.unique ? '<span class="card-badge">Pieza unica</span>' : '';
@@ -873,10 +976,13 @@ function renderGrid() {
     const priceHtml = isOffer(p)
       ? `<div class="card-price-offer">${getPrice(p)}</div>`
       : `<div class="card-price${priceClass}">${getPrice(p)}</div>`;
-    return `<div class="card" data-idx="${PRODUCTS.indexOf(p)}" onclick="openModal(${PRODUCTS.indexOf(p)})">
+    const oosClass = isOut ? ' out-of-stock' : '';
+    const oosLabel = isOut ? '<span class="card-oos-label">Sin stock</span>' : '';
+    const sellBtn = isAdmin ? `<button class="card-sell-btn" onclick="event.stopPropagation();openSaleDialog('${p.id}')">&#128722;</button>` : '';
+    return `<div class="card${oosClass}" data-idx="${PRODUCTS.indexOf(p)}" onclick="openModal(${PRODUCTS.indexOf(p)})">
       <div class="card-img-wrap">
         <img src="${thumb}" alt="${p.name}" loading="lazy" decoding="async">
-        ${badge}${nfcBadge}${offerBadge}${multi}
+        ${badge}${nfcBadge}${offerBadge}${multi}${oosLabel}${sellBtn}
       </div>
       <div class="card-info">
         <div class="card-name">${p.name}</div>
@@ -1009,7 +1115,113 @@ document.getElementById('modalCarousel').addEventListener('touchend', e => {
   }
 }, { passive: true });
 
+// ---- Sales tracking ----
+const SALES_KEY = 'rp3d-sales';
+const OOS_KEY = 'rp3d-oos';
+
+function getSales() {
+  try { return JSON.parse(localStorage.getItem(SALES_KEY)) || []; } catch { return []; }
+}
+function saveSales(s) { try { localStorage.setItem(SALES_KEY, JSON.stringify(s)); } catch {} }
+function getOos() {
+  try { return JSON.parse(localStorage.getItem(OOS_KEY)) || []; } catch { return []; }
+}
+function saveOos(o) { try { localStorage.setItem(OOS_KEY, JSON.stringify(o)); } catch {} }
+
+let pendingSaleProduct = null;
+
+function openSaleDialog(productId) {
+  const p = PRODUCTS.find(x => x.id === productId);
+  if (!p) return;
+  pendingSaleProduct = p;
+  document.getElementById('saleDialogTitle').textContent = p.name;
+  const numPrice = parseFloat((p.adminPrice || p.price).replace(/[^\d.,]/g,'').replace(',','.'));
+  document.getElementById('salePrice').value = isNaN(numPrice) ? '' : numPrice;
+  document.getElementById('saleOos').checked = false;
+  document.getElementById('saleDialog').hidden = false;
+}
+
+function closeSaleDialog() {
+  document.getElementById('saleDialog').hidden = true;
+  pendingSaleProduct = null;
+}
+
+function confirmSale() {
+  if (!pendingSaleProduct) return;
+  const price = parseFloat(document.getElementById('salePrice').value) || 0;
+  const oos = document.getElementById('saleOos').checked;
+  const sales = getSales();
+  sales.push({ id: pendingSaleProduct.id, name: pendingSaleProduct.name, price, ts: Date.now() });
+  saveSales(sales);
+  if (oos) {
+    const list = getOos();
+    if (!list.includes(pendingSaleProduct.id)) { list.push(pendingSaleProduct.id); saveOos(list); }
+  }
+  closeSaleDialog();
+  renderGrid();
+  observeCards();
+}
+
+function openSalesSummary() {
+  const sales = getSales();
+  const byId = {};
+  let total = 0;
+  sales.forEach(s => {
+    if (!byId[s.id]) byId[s.id] = { name: s.name, qty: 0, amount: 0 };
+    byId[s.id].qty++;
+    byId[s.id].amount += s.price;
+    total += s.price;
+  });
+  document.getElementById('salesTotalDisplay').textContent = total.toFixed(2) + '€';
+  const list = document.getElementById('salesList');
+  list.innerHTML = Object.values(byId).map(s =>
+    `<li><span class="sale-name">${s.name}</span><span class="sale-qty">x${s.qty}</span><span class="sale-amount">${s.amount.toFixed(2)}€</span></li>`
+  ).join('') || '<li style="color:var(--text-tertiary)">Sin ventas registradas</li>';
+  document.getElementById('salesSummary').hidden = false;
+}
+
+function closeSalesSummary() {
+  document.getElementById('salesSummary').hidden = true;
+}
+
+function resetSales() {
+  if (!confirm('Borrar todo el historial de ventas?')) return;
+  localStorage.removeItem(SALES_KEY);
+  localStorage.removeItem(OOS_KEY);
+  closeSalesSummary();
+  renderGrid();
+  observeCards();
+}
+
 init();
 </script>
+
+<!-- Sale dialog -->
+<div class="sale-dialog" id="saleDialog" hidden>
+  <div class="sale-dialog-box">
+    <div class="sale-dialog-title" id="saleDialogTitle"></div>
+    <label>Precio de venta (&euro;)</label>
+    <input type="number" id="salePrice" min="0" step="0.5" inputmode="decimal">
+    <div class="sale-dialog-check">
+      <input type="checkbox" id="saleOos"><label for="saleOos">Marcar sin stock</label>
+    </div>
+    <div class="sale-dialog-btns">
+      <button class="sale-btn-cancel" onclick="closeSaleDialog()">Cancelar</button>
+      <button class="sale-btn-confirm" onclick="confirmSale()">Registrar venta</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sales summary -->
+<div class="sales-summary" id="salesSummary" hidden>
+  <div class="sales-summary-box">
+    <div class="sales-summary-title">Resumen de ventas</div>
+    <div class="sales-summary-total" id="salesTotalDisplay">0&euro;</div>
+    <ul class="sales-summary-list" id="salesList"></ul>
+    <button class="sales-summary-close" onclick="closeSalesSummary()">Cerrar</button>
+    <button class="sales-summary-reset" onclick="resetSales()">Borrar todo el historial</button>
+  </div>
+</div>
+
 </body>
 </html>
